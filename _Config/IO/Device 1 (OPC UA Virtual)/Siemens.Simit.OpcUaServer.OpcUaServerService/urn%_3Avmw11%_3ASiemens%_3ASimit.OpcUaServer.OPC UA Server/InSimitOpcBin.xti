@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CTComOpcUaObjDef">
+	<ImageDatas>
+		<ImageData Id="1000">424d360300000000000036000000280000001000000010000000010018000000000000030000c40e0000c40e00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff8383836d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d838383ff00ffff00ff1d82b51b81b3187eb0167cae1379ab1076a80d73a50b71a3086ea0066c9e046a9c02689a0167994c4c4c8383832287ba67ccff2085b899ffff6fd4ff6fd4ff6fd4ff6fd4ff6fd4ff6fd4ff6fd4ff6fd4ff3ba0d399ffff0167996e6e6e258abd67ccff278cbf99ffff7be0ff7be0ff7be0ff7be0ff7be0ff7be0ff7be0ff7be0ff44a9dc99ffff02689a6d6d6d288dc067ccff2d92c599ffff85ebff85ebff85ebff85ebff85ebff85ebff85ebff85ebff4eb3e699ffff046a9c6d6d6d2a8fc267ccff3398cb99ffff91f7ff91f7ff91f7ff91f7ff91f7ff91f7ff91f7ff91f7ff57bcef99ffff066c9e6d6d6d2d92c56fd4ff3499cc99ffff99ffff99ffff99ffff99ffff99ffff99ffff99ffff99ffff60c5f899ffff086ea06e6e6e2f94c77be0ff2d92c5ffffffffffffffffffffffffffffffffffffffffffffffffffffff81e6ffffffff0b71a38c8c8c3196c985ebff81e6ff2d92c52d92c52d92c52d92c52d92c52d92c5288dc02489bc2085b81c81b41b81b31b81b3ff00ff3398cb91f7ff8ef4ff8ef4ff8ef4ff8ef4ff8ef4ffffffffffffffffffffffffffffffff167cae8c8c8cff00ffff00ff3499ccffffff99ffff99ffff99ffff99ffffffffff258abd2287ba1f84b71d82b51b81b3187eb0ff00ffff00ffff00ffff00ff3499ccffffffffffffffffffffffff2a8fc2ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff3499cc3398cb3196c92f94c7ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff</ImageData>
+	</ImageDatas>
+	<Module Id="#x01010030" KeepUnrestoredLinks="2" TcSmClass="CTComOpcUaObjDef">
+		<Name>__FILENAME__</Name>
+		<ImageId>1000</ImageId>
+		<Xml>
+			<TcSmExtensions>
+				<TcSmExtension Guid="{C81CD753-E8EB-4086-9C43-151D85679965}">
+					<StringSize>80</StringSize>
+					<NodeIdByteStringSize>256</NodeIdByteStringSize>
+					<DataTypePrefix>SimitOpcUa_</DataTypePrefix>
+					<EnableWrite/>
+				</TcSmExtension>
+			</TcSmExtensions>
+		</Xml>
+		<TmcDesc GUID="{5FC47F2A-BCE4-4970-884C-C7A1B9EEB468}" TcSmClass="CTComOpcUaObjDef">
+			<Name>OPC UA Folder</Name>
+			<CLSID ClassFactory="TcIoOpcUa">{03130082-0000-0000-F000-000000000064}</CLSID>
+			<Info>
+				<ImageData>424d360300000000000036000000280000001000000010000000010018000000000000030000c40e0000c40e00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff8383836d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d838383ff00ffff00ff1d82b51b81b3187eb0167cae1379ab1076a80d73a50b71a3086ea0066c9e046a9c02689a0167994c4c4c8383832287ba67ccff2085b899ffff6fd4ff6fd4ff6fd4ff6fd4ff6fd4ff6fd4ff6fd4ff6fd4ff3ba0d399ffff0167996e6e6e258abd67ccff278cbf99ffff7be0ff7be0ff7be0ff7be0ff7be0ff7be0ff7be0ff7be0ff44a9dc99ffff02689a6d6d6d288dc067ccff2d92c599ffff85ebff85ebff85ebff85ebff85ebff85ebff85ebff85ebff4eb3e699ffff046a9c6d6d6d2a8fc267ccff3398cb99ffff91f7ff91f7ff91f7ff91f7ff91f7ff91f7ff91f7ff91f7ff57bcef99ffff066c9e6d6d6d2d92c56fd4ff3499cc99ffff99ffff99ffff99ffff99ffff99ffff99ffff99ffff99ffff60c5f899ffff086ea06e6e6e2f94c77be0ff2d92c5ffffffffffffffffffffffffffffffffffffffffffffffffffffff81e6ffffffff0b71a38c8c8c3196c985ebff81e6ff2d92c52d92c52d92c52d92c52d92c52d92c5288dc02489bc2085b81c81b41b81b31b81b3ff00ff3398cb91f7ff8ef4ff8ef4ff8ef4ff8ef4ff8ef4ffffffffffffffffffffffffffffffff167cae8c8c8cff00ffff00ff3499ccffffff99ffff99ffff99ffff99ffffffffff258abd2287ba1f84b71d82b51b81b3187eb0ff00ffff00ffff00ffff00ff3499ccffffffffffffffffffffffff2a8fc2ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff3499cc3398cb3196c92f94c7ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff</ImageData>
+				<TabExtension GUID="{C81CD753-E8EB-4086-9C43-151D85679966}"/>
+			</Info>
+			<InitSequence>SO</InitSequence>
+			<Contexts>
+				<Context>
+					<Id>1</Id>
+				</Context>
+			</Contexts>
+			<Interfaces>
+				<Interface>
+					<Type GUID="{00000012-0000-0000-E000-000000000064}">ITComObject</Type>
+				</Interface>
+				<Interface>
+					<Type GUID="{00000022-0000-0000-E000-000000000064}">ITComObjectParent</Type>
+				</Interface>
+			</Interfaces>
+			<Parameters>
+				<Parameter>
+					<Name HideSubItems="true">NodeId</Name>
+					<BitSize>200</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements>25</Elements>
+					</ArrayInfo>
+					<Default>
+						<Data>00000100</Data>
+					</Default>
+					<PTCID>#x03130000</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>NodeClass</Name>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+					<Default>
+						<Value>1</Value>
+					</Default>
+					<PTCID>#x03130001</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>OpcUaNodeNamespaceName</Name>
+					<BitSize>2048</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-0001000000FF}">STRING(255)</BaseType>
+					<PTCID>#x03130004</PTCID>
+				</Parameter>
+			</Parameters>
+			<Properties>
+				<Property>
+					<Name>Category</Name>
+					<Value>OpcUaNode</Value>
+				</Property>
+				<Property>
+					<Name>ChildCategory</Name>
+					<Value>OpcUaNode</Value>
+				</Property>
+			</Properties>
+			<ParentOTCID>#x01010020</ParentOTCID>
+			<ParameterValues>
+				<Value>
+					<Name>NodeId</Name>
+					<Data>02000000010000000d000000496e53696d69744f706342696e</Data>
+				</Value>
+				<Value>
+					<Name>NodeClass</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>OpcUaNodeNamespaceName</Name>
+					<String>urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server</String>
+				</Value>
+			</ParameterValues>
+		</TmcDesc>
+		<Module File="Ix_Enable.xti"/>
+		<Module File="Ix_Left.xti"/>
+		<Module File="Ix_LSensorBlue.xti"/>
+		<Module File="Ix_LSensorOrange.xti"/>
+		<Module File="Ix_LSensorPurple.xti"/>
+		<Module File="Ix_LSensorYellow.xti"/>
+		<Module File="Ix_ManAuto.xti"/>
+		<Module File="Ix_NotAus.xti"/>
+		<Module File="Ix_Off.xti"/>
+		<Module File="Ix_On.xti"/>
+		<Module File="Ix_PowerOn.xti"/>
+		<Module File="Ix_Reset.xti"/>
+		<Module File="Ix_Right.xti"/>
+		<Module File="Ix_RSensorBlue.xti"/>
+		<Module File="Ix_RSensorOrange.xti"/>
+		<Module File="Ix_RSensorPurple.xti"/>
+		<Module File="Ix_RSensorYellow.xti"/>
+	</Module>
+</TcSmItem>
