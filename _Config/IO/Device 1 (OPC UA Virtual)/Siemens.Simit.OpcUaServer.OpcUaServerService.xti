@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CTComOpcUaObjDef">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{F2E23DFE-0EF0-465E-B7E5-80E81FA4AB06}" TcBaseType="true">OpcUaDeviceStatus</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>Connected</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[connection status
+1 = TRUE | 0 = FALSE]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ReadBusy</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[only active in triggered mode
+1 = TRUE | 0 = FALSE]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>KeepAlives</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000013}">BIT4</Type>
+				<Comment><![CDATA[number of counted keepalive messages
+only active in subscription mode]]></Comment>
+				<BitSize>4</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>StmState</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000001}">BYTE</Type>
+				<Comment><![CDATA[client statemachine state
+0 = init  |  1 = connect
+2 = resolve namespace
+3 = get node handles
+4 = polling mode
+5 = triggered mode
+6 = awaiting data change notifications (subscriptions)
+7 = disconnect  |  8 = reset]]></Comment>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{7CD7A8B9-2459-4D9A-A7D6-EA64744B3C97}" TcBaseType="true">OpcUaDeviceControl</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>ResetStm</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[resetting client by setting bit true]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Execute</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[in triggered mode set bit true to execute a read/write operation]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Write Enable</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<Comment><![CDATA[enable client wide write operations by setting bit to true]]></Comment>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+		</DataType>
+	</DataTypes>
+	<ImageDatas>
+		<ImageData Id="1000">424de6000000000000007600000028000000100000000e000000010004000000000070000000000000000000000000000000000000000000000000008000008000000080800080000000800080008080000080808000c0c0c0000000ff0000ff000000ffff00ff000000ff00ff00ffff0000ffffff00dddddddddddddddddd999dddddd999ddd99799999999799ddd999dddddd999dddddddddddddddddddd00dd0ddddd00dd8088080888808808d0dd0d0dddd0dddd8088080008808888d0dd0d0dd0d0dddd8088080880808808dd00dd000ddd00dddddddddddddddddddddddddddddddddd</ImageData>
+	</ImageDatas>
+	<Module Id="#x01010010" KeepUnrestoredLinks="2" TcSmClass="CTComOpcUaObjDef">
+		<Name>__FILENAME__</Name>
+		<ImageId>1000</ImageId>
+		<Xml>
+			<TcSmExtensions>
+				<TcSmExtension Guid="{C81CD753-E8EB-4086-9C43-151D85679965}">
+					<DataTypePrefix>SimitOpcUa_</DataTypePrefix>
+					<EnableWrite/>
+				</TcSmExtension>
+			</TcSmExtensions>
+		</Xml>
+		<TmcDesc GUID="{407ED3D9-9116-402D-B312-6151DC527AC7}" TcSmClass="CTComOpcUaObjDef">
+			<Name>OPC UA Client</Name>
+			<CLSID ClassFactory="TcIoOpcUa">{03130080-0000-0000-F000-000000000064}</CLSID>
+			<Info>
+				<ImageData>424de6000000000000007600000028000000100000000e000000010004000000000070000000000000000000000000000000000000000000000000008000008000000080800080000000800080008080000080808000c0c0c0000000ff0000ff000000ffff00ff000000ff00ff00ffff0000ffffff00dddddddddddddddddd999dddddd999ddd99799999999799ddd999dddddd999dddddddddddddddddddd00dd0ddddd00dd8088080888808808d0dd0d0dddd0dddd8088080008808888d0dd0d0dd0d0dddd8088080880808808dd00dd000ddd00dddddddddddddddddddddddddddddddddd</ImageData>
+				<TabExtension GUID="{C81CD753-E8EB-4086-9C43-151D85679965}"/>
+			</Info>
+			<InitSequence>SO</InitSequence>
+			<Contexts>
+				<Context>
+					<Id>1</Id>
+				</Context>
+			</Contexts>
+			<Interfaces>
+				<Interface>
+					<Type GUID="{00000012-0000-0000-E000-000000000064}">ITComObject</Type>
+				</Interface>
+				<Interface>
+					<Type GUID="{00000022-0000-0000-E000-000000000064}">ITComObjectParent</Type>
+				</Interface>
+			</Interfaces>
+			<Parameters>
+				<Parameter>
+					<Name>AdsPort</Name>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000004}">WORD</BaseType>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03131001</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>ServerUrl</Name>
+					<BitSize>2048</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-0001000000FF}">STRING(255)</BaseType>
+					<PTCID>#x03130002</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>ReadCycleTime</Name>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000007}">DWORD</BaseType>
+					<Default>
+						<Value>1000</Value>
+					</Default>
+					<PTCID>#x03130003</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>WriteCycleTime</Name>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000007}">DWORD</BaseType>
+					<Default>
+						<Value>1000</Value>
+					</Default>
+					<PTCID>#x03130004</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name HideSubItems="true">ReadLists</Name>
+					<BitSize>21904</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements>2738</Elements>
+					</ArrayInfo>
+					<Default>
+						<Data>00000000</Data>
+					</Default>
+					<PTCID>#x03130005</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>NodesPerRequest</Name>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000007}">DWORD</BaseType>
+					<Default>
+						<Value>100</Value>
+					</Default>
+					<PTCID>#x03130006</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name HideSubItems="true">NamespaceInfo</Name>
+					<BitSize>520</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements>65</Elements>
+					</ArrayInfo>
+					<Default>
+						<Value>0</Value>
+					</Default>
+					<PTCID>#x03130007</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>ArraySingleWriteMode</Name>
+					<BitSize>8</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+					<PTCID>#x03130008</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>SecurityMode</Name>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000007}">DWORD</BaseType>
+					<Default>
+						<Value>1</Value>
+					</Default>
+					<PTCID>#x0313000b</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>SecurityPolicy</Name>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000007}">DWORD</BaseType>
+					<Default>
+						<Value>1</Value>
+					</Default>
+					<PTCID>#x0313000c</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>TransportType</Name>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000007}">DWORD</BaseType>
+					<Default>
+						<Value>1</Value>
+					</Default>
+					<PTCID>#x0313000d</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>SessionTimeout</Name>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000007}">DWORD</BaseType>
+					<Default>
+						<Value>5000</Value>
+					</Default>
+					<PTCID>#x0313000e</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>ConnectTimeout</Name>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000007}">DWORD</BaseType>
+					<Default>
+						<Value>5000</Value>
+					</Default>
+					<PTCID>#x0313000f</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>Username</Name>
+					<BitSize>2048</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-0001000000FF}">STRING(255)</BaseType>
+					<PTCID>#x03130010</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>Password</Name>
+					<BitSize>2048</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-0001000000FF}">STRING(255)</BaseType>
+					<PTCID>#x03130011</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>StringSize</Name>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000004}">WORD</BaseType>
+					<Default>
+						<Value>80</Value>
+					</Default>
+					<PTCID>#x03130012</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>NodeIdByteStringSize</Name>
+					<BitSize>16</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000004}">WORD</BaseType>
+					<Default>
+						<Value>256</Value>
+					</Default>
+					<PTCID>#x03130013</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name HideSubItems="true">DataCollectionSettings</Name>
+					<BitSize>136</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+					<ArrayInfo>
+						<LBound>0</LBound>
+						<Elements>17</Elements>
+					</ArrayInfo>
+					<Default>
+						<Data>00E8030000B00400000500000000000000</Data>
+					</Default>
+					<PTCID>#x03138014</PTCID>
+				</Parameter>
+				<Parameter>
+					<Name>UaIdentTokenType</Name>
+					<BitSize>32</BitSize>
+					<BaseType GUID="{18071995-0000-0000-0000-000000000007}">DWORD</BaseType>
+					<PTCID>#x03138015</PTCID>
+				</Parameter>
+			</Parameters>
+			<DataAreas>
+				<DataArea>
+					<AreaNo AreaType="InputSrc" ChildArea="true">0</AreaNo>
+					<Name>Inputs</Name>
+					<ContextId>1</ContextId>
+					<ByteSize>2</ByteSize>
+					<Symbol>
+						<Name>Status</Name>
+						<BitSize>16</BitSize>
+						<BaseType GUID="{F2E23DFE-0EF0-465E-B7E5-80E81FA4AB06}">OpcUaDeviceStatus</BaseType>
+						<BitOffs>0</BitOffs>
+					</Symbol>
+				</DataArea>
+				<DataArea>
+					<AreaNo AreaType="OutputDst" ChildArea="true">1</AreaNo>
+					<Name>Outputs</Name>
+					<ContextId>1</ContextId>
+					<ByteSize>2</ByteSize>
+					<Symbol>
+						<Name>Control</Name>
+						<BitSize>16</BitSize>
+						<BaseType GUID="{7CD7A8B9-2459-4D9A-A7D6-EA64744B3C97}">OpcUaDeviceControl</BaseType>
+						<BitOffs>0</BitOffs>
+					</Symbol>
+				</DataArea>
+			</DataAreas>
+			<Properties>
+				<Property>
+					<Name>Category</Name>
+					<Value>NeedIoIdleTask</Value>
+				</Property>
+				<Property>
+					<Name>Category</Name>
+					<Value>OpcUaAdsBox</Value>
+				</Property>
+				<Property>
+					<Name>Category</Name>
+					<Value>HideTcComContextPP</Value>
+				</Property>
+				<Property>
+					<Name>Category</Name>
+					<Value>HideTcComInterfacePP</Value>
+				</Property>
+				<Property>
+					<Name>Category</Name>
+					<Value>HideTcComPP</Value>
+				</Property>
+				<Property>
+					<Name>Category</Name>
+					<Value>HideTcComParaPP</Value>
+				</Property>
+				<Property>
+					<Name>Category</Name>
+					<Value>HideTcComDataAreaPP</Value>
+				</Property>
+				<Property>
+					<Name>ChildCategory</Name>
+					<Value>OpcUaNode</Value>
+				</Property>
+			</Properties>
+			<ParentOTCID>#x03010010</ParentOTCID>
+			<ParameterValues>
+				<Value>
+					<Name>AdsPort</Name>
+					<Value>1000</Value>
+				</Value>
+				<Value>
+					<Name>ServerUrl</Name>
+					<String>opc.tcp://vpc-tia.albrecht-net.ch:47144/</String>
+				</Value>
+				<Value>
+					<Name>ReadCycleTime</Name>
+					<Value>25</Value>
+				</Value>
+				<Value>
+					<Name>WriteCycleTime</Name>
+					<Value>25</Value>
+				</Value>
+				<Value>
+					<Name>ReadLists</Name>
+					<Data>0100000080010000ca0600000000000030001700000002000000010000000900000002000000010000000700000002000000010000000e00000002000000010000001000000002000000010000001000000002000000010000001000000002000000010000000a00000002000000010000000900000002000000010000000600000002000000010000000500000002000000010000000a00000002000000010000000800000002000000010000000800000002000000010000000e00000002000000010000001000000002000000010000001000000002000000010000001000000002000000010000000e00000002000000010000001500000002000000010000001700000002000000010000001700000002000000010000001700000002000000010000001000000002000000010000001200000002000000010000001200000002000000010000001200000002000000010000000f00000002000000010000001100000002000000010000001100000002000000010000001100000002000000010000000e00000002000000010000001000000002000000010000001000000002000000010000001000000002000000010000001200000002000000010000001400000002000000010000001400000002000000010000001400000002000000010000001300000002000000010000001500000002000000010000001500000002000000010000001500000002000000010000000900000002000000010000000700000002000000010000000f00000002000000010000001100000002000000010000001100000002000000010000001100000049785f456e61626c6500000000000000000000000000000049785f4c656674000000000000000000000000000000000049785f4c53656e736f72426c75650000000000000000000049785f4c53656e736f724f72616e6765000000000000000049785f4c53656e736f72507572706c65000000000000000049785f4c53656e736f7259656c6c6f77000000000000000049785f4d616e4175746f000000000000000000000000000049785f4e6f7441757300000000000000000000000000000049785f4f666600000000000000000000000000000000000049785f4f6e0000000000000000000000000000000000000049785f506f7765724f6e000000000000000000000000000049785f52657365740000000000000000000000000000000049785f52696768740000000000000000000000000000000049785f5253656e736f72426c75650000000000000000000049785f5253656e736f724f72616e6765000000000000000049785f5253656e736f72507572706c65000000000000000049785f5253656e736f7259656c6c6f77000000000000000049775f536c6964657256616c75650000000000000000000051785f456e61626c655661725370656564426c756500000051785f456e61626c6556617253706565644f72616e67650051785f456e61626c655661725370656564507572706c650051785f456e61626c65566172537065656459656c6c6f770051785f46756c6c5370656564426c7565000000000000000051785f46756c6c53706565644f72616e676500000000000051785f46756c6c5370656564507572706c6500000000000051785f46756c6c537065656459656c6c6f7700000000000051785f4d6f746f72416377426c756500000000000000000051785f4d6f746f724163774f72616e67650000000000000051785f4d6f746f72416377507572706c650000000000000051785f4d6f746f7241637759656c6c6f770000000000000051785f4d6f746f724377426c75650000000000000000000051785f4d6f746f7243774f72616e6765000000000000000051785f4d6f746f724377507572706c65000000000000000051785f4d6f746f72437759656c6c6f77000000000000000051785f53746f707065724c656674426c756500000000000051785f53746f707065724c6566744f72616e67650000000051785f53746f707065724c656674507572626c650000000051785f53746f707065724c65667459656c6c6f770000000051785f53746f707065725269676874426c7565000000000051785f53746f7070657252696768744f72616e676500000051785f53746f707065725269676874507572626c6500000051785f53746f70706572526967687459656c6c6f770000006e446973706c6179730000000000000000000000000000006e4c6967687473000000000000000000000000000000000051775f5661725370656564426c756500000000000000000051775f56617253706565644f72616e67650000000000000051775f5661725370656564507572706c650000000000000051775f566172537065656459656c6c6f7700000000000000610300000803000000000000000030000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000080000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000800000008000000080000000800000008000000080000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d000000000000000d00000000000000400001015000010160000101700001018000010190000101a0000101b0000101c0000101d0000101e0000101f000010100010101100101012001010130010101400101016001010190010101a0010101b0010101c0010101d0010101e0010101f001010100020101100201012002010130020101400201015002010160020101700201018002010190020101a0020101b0020101c0020101d0020101e0020101f002010100030101200301013003010140030101500301016003010170030101010000001e00000048000000</Data>
+				</Value>
+				<Value>
+					<Name>NodesPerRequest</Name>
+					<Value>50</Value>
+				</Value>
+				<Value>
+					<Name>NamespaceInfo</Name>
+					<Data>0300000000000000000000003100000075726e3a766d7731313a5369656d656e733a53696d69742e4f706355615365727665722e4f504320554120536572766572</Data>
+				</Value>
+				<Value>
+					<Name>ArraySingleWriteMode</Name>
+					<EnumText>FALSE</EnumText>
+				</Value>
+				<Value>
+					<Name>SecurityMode</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>SecurityPolicy</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>TransportType</Name>
+					<Value>1</Value>
+				</Value>
+				<Value>
+					<Name>SessionTimeout</Name>
+					<Value>5000</Value>
+				</Value>
+				<Value>
+					<Name>ConnectTimeout</Name>
+					<Value>5000</Value>
+				</Value>
+				<Value>
+					<Name>Username</Name>
+					<String></String>
+				</Value>
+				<Value>
+					<Name>Password</Name>
+					<String></String>
+				</Value>
+				<Value>
+					<Name>StringSize</Name>
+					<Value>80</Value>
+				</Value>
+				<Value>
+					<Name>NodeIdByteStringSize</Name>
+					<Value>256</Value>
+				</Value>
+				<Value>
+					<Name>DataCollectionSettings</Name>
+					<Data>0019000000b00400000500000000000000</Data>
+				</Value>
+				<Value>
+					<Name>UaIdentTokenType</Name>
+					<Value>0</Value>
+				</Value>
+			</ParameterValues>
+		</TmcDesc>
+		<Module File="urn%_3Avmw11%_3ASiemens%_3ASimit.OpcUaServer.OPC UA Server.xti"/>
+	</Module>
+</TcSmItem>
