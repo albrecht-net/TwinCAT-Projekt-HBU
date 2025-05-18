@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_ConvSys" Id="{8235fbcc-99f3-4e93-85a5-6d95fab18df5}" SpecialFunc="None">
+    <Declaration><![CDATA[// Bandrundlauf-Controller
+// Kontrolliert den Bandrundlauf, ist eigentlich der Hauptbaustein(deshalb wird direkt auf PLC-Variablen zugegriffen(ohne Schnittstellenübergabe)
+FUNCTION_BLOCK FB_ConvSys
+VAR
+    vsFB_ConvPurple : FB_Conveyor;
+    vsFB_ConvOrange : FB_Conveyor;
+    vsFB_ConvYellow : FB_Conveyor;
+    vsFB_ConvBlue : FB_Conveyor;
+
+    vsFB_CounterR : CTU := (PV := 0);
+	vsFB_CounterL : CTU := (PV := 0);
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*Multiinstanzaufruf von Band lila*)
+vsFB_ConvPurple(vix_Power := GVL_SimitSp.Ix_PowerOn,
+                vix_On := GVL_SimitSp.Ix_On,
+                vix_Off := GVL_SimitSp.Ix_Off,
+                vix_Left := GVL_SimitSp.Ix_Left,
+                vix_Right := GVL_SimitSp.Ix_Right,
+                vix_ManAuto := GVL_SimitSp.Ix_ManAuto,
+                viw_Speed := GVL_SimitSp.Iw_SliderValue,
+                vqx_MotorCw => GVL_SimitSp.Qx_MotorCwPurple,
+                vqx_MotorAcw => GVL_SimitSp.Qx_MotorAcwPurple,
+                vqx_VarSpeed => GVL_SimitSp.Qx_EnableVarSpeedPurple,
+                vqw_Speed => GVL_SimitSp.Qw_VarSpeedPurple);
+     
+(*Multiinstanzaufruf von Band orange*)
+vsFB_ConvOrange(vix_Power := GVL_SimitSp.Ix_PowerOn,
+                vix_On := GVL_SimitSp.Ix_On,
+                vix_Off := GVL_SimitSp.Ix_Off,
+                vix_Left := GVL_SimitSp.Ix_Left,
+                vix_Right := GVL_SimitSp.Ix_Right,
+                vix_ManAuto := GVL_SimitSp.Ix_ManAuto,
+                viw_Speed := GVL_SimitSp.Iw_SliderValue,
+                vqx_MotorCw => GVL_SimitSp.Qx_MotorCwOrange,
+                vqx_MotorAcw => GVL_SimitSp.Qx_MotorAcwOrange,
+                vqx_VarSpeed => GVL_SimitSp.Qx_EnableVarSpeedOrange,
+                vqw_Speed => GVL_SimitSp.Qw_VarSpeedOrange);
+
+(*Multiinstanzaufruf von Band yellow*)
+vsFB_ConvYellow(vix_Power := GVL_SimitSp.Ix_PowerOn,
+                vix_On := GVL_SimitSp.Ix_On,
+                vix_Off := GVL_SimitSp.Ix_Off,
+                vix_Left := GVL_SimitSp.Ix_Left,
+                vix_Right := GVL_SimitSp.Ix_Right,
+                vix_ManAuto := GVL_SimitSp.Ix_ManAuto,
+                viw_Speed := GVL_SimitSp.Iw_SliderValue,
+                vqx_MotorCw => GVL_SimitSp.Qx_MotorCwYellow,
+                vqx_MotorAcw => GVL_SimitSp.Qx_MotorAcwYellow,
+                vqx_VarSpeed => GVL_SimitSp.Qx_EnableVarSpeedYellow,
+                vqw_Speed => GVL_SimitSp.Qw_VarSpeedYellow);
+
+(*Multiinstanzaufruf von Band blue*)
+vsFB_ConvBlue(vix_Power := GVL_SimitSp.Ix_PowerOn,
+                vix_On := GVL_SimitSp.Ix_On,
+                vix_Off := GVL_SimitSp.Ix_Off,
+                vix_Left := GVL_SimitSp.Ix_Left,
+                vix_Right := GVL_SimitSp.Ix_Right,
+                vix_ManAuto := GVL_SimitSp.Ix_ManAuto,
+                viw_Speed := GVL_SimitSp.Iw_SliderValue,
+                vqx_MotorCw => GVL_SimitSp.Qx_MotorCwBlue,
+                vqx_MotorAcw => GVL_SimitSp.Qx_MotorAcwBlue,
+                vqx_VarSpeed => GVL_SimitSp.Qx_EnableVarSpeedBlue,
+                vqw_Speed => GVL_SimitSp.Qw_VarSpeedBlue);
+
+(*Rundlauf Anzeigen*)
+GVL_SimitSp.Qx_LightBlue := GVL_SimitSp.Qx_MotorAcwBlue;  (*Gegenuhrzeigersinn Kontrolleuchte*)
+GVL_SimitSp.Qx_LightYellow := GVL_SimitSp.Qx_MotorCwBlue; (*Uhrzeigersinn Kontrolleuchte*)
+GVL_SimitSp.Qw_Display := GVL_SimitSp.Qw_VarSpeedPurple;  (*aktuelle variable Geschwindigkeit*)
+
+(*Eilgang auf Enable Taster*)
+GVL_SimitSp.Qx_FullSpeedPurple := GVL_SimitSp.Ix_Enable;
+GVL_SimitSp.Qx_FullSpeedOrange := GVL_SimitSp.Ix_Enable;
+GVL_SimitSp.Qx_FullSpeedYellow := GVL_SimitSp.Ix_Enable;
+GVL_SimitSp.Qx_FullSpeedBlue := GVL_SimitSp.Ix_Enable; 
+
+// Conveyor circulation counter right
+vsFB_CounterR(CU := GVL_SimitSp.Ix_RSensorPurple AND GVL_SimitSp.Qx_MotorAcwPurple);
+GVL_SimitSp.Qb_74 := WORD_TO_BYTE(vsFB_CounterR.CV);
+
+// Conveyor circulation counter left
+vsFB_CounterL(CU := GVL_SimitSp.Ix_LSensorPurple AND GVL_SimitSp.Qx_MotorCwPurple);
+GVL_SimitSp.Qb_75 := WORD_TO_BYTE(vsFB_CounterL.CV);
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

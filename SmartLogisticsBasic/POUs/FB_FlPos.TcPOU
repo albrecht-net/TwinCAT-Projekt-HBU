@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_FlPos" Id="{026a26e0-becc-48e5-967e-9ba209645323}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_FlPos
+VAR_INPUT
+    vix_Sig : BOOL;
+END_VAR
+VAR_OUTPUT
+    vqx_FlPos : BOOL;
+END_VAR
+VAR
+    vsx_LastSig : BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[vqx_FlPos := (vix_Sig = TRUE) AND (vsx_LastSig = FALSE);
+vsx_LastSig := vix_Sig;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

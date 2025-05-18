@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_SpeedControl" Id="{00448bd9-e5a5-4404-8981-797a91c7cc5e}" SpecialFunc="None">
+    <Declaration><![CDATA[// variable Geschwindigkeits Kontrolle
+FUNCTION_BLOCK FB_SpeedControl
+VAR_INPUT
+    // Eingabe Soll-Geschwindigkeit
+    viw_Speed : WORD;
+END_VAR
+VAR_OUTPUT
+    // Enable Band Variable Geschwindigkeit
+    vqx_VarSpeed : BOOL;
+    // Band Soll-Geschwindigkeit
+    vqw_Speed : WORD;
+END_VAR
+VAR
+    // Soll-Geschwindigkeit von letztem Zyklus
+    vsw_LastSpeed : WORD;
+END_VAR
+VAR_TEMP
+    fScaleSpeed : REAL;
+    fNormSpeed : REAL;
+END_VAR
+VAR CONSTANT
+    cMaxScale : REAL := 100;
+    cMinScale : REAL := 0;
+    cMaxNorm : INT := 27648;
+    cMinNorm : INT := 0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF (viw_Speed <> vsw_LastSpeed) THEN
+    (*falls sich die Soll-Geschwindigkeit änderte*)
+    (*Geschwindigkeit von WORD-Bereich auf Analogwert-Max skalieren*)   
+
+    fScaleSpeed := (cMaxScale - cMinScale) * (viw_Speed - cMinScale) / (cMaxNorm - cMinNorm) + cMinScale;
+    fNormSpeed := (cMaxNorm - cMinNorm) * (fScaleSpeed - cMinScale) / (cMaxScale - cMinScale) + cMinNorm;
+
+    vqw_Speed := viw_Speed;
+
+    vsw_LastSpeed := viw_Speed; (*aktuelle Speed abspeichern für nächsten Zyklus*)
+END_IF;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_RunControl" Id="{d8550052-187e-4ee0-8d31-121282ba274c}" SpecialFunc="None">
+    <Declaration><![CDATA[// Band Controller
+// Kontrolliert die Bandsteuerung anhand der gewünschten Eingabe-Funktionen    
+FUNCTION_BLOCK FB_RunControl
+VAR_INPUT 
+    vix_Power : BOOL; // Hauptschalter
+    vix_On : BOOL; // Band ein
+    vix_Off : BOOL; // Band aus
+    vix_AutoMode : BOOL; // Manuell oder Auto-Modus
+    vix_Left : BOOL; // Linkslauf
+    vix_Right : BOOL; // Rechtslauf
+END_VAR
+VAR_OUTPUT 
+    vqx_Left : BOOL; // Linkslauf
+    vqx_Right : BOOL; // Rechtslauf
+END_VAR
+VAR 
+    vsx_DirLeftRight : BOOL; // Bit für Laufrichtung
+    vsx_Running : BOOL; // Bit für Bandstatus
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*Start-Bedingungen*)
+IF vix_Power AND (vix_On OR vsx_Running) THEN (*Selbsthaltung*)
+    vsx_Running := TRUE;
+    vqx_Right := vsx_DirLeftRight;
+    vqx_Left := NOT vsx_DirLeftRight;
+    
+    IF vix_AutoMode THEN    
+        (*Automatikbetrieb*)
+        IF vix_Left THEN
+            vqx_Left := TRUE;
+            vqx_Right := FALSE;
+        END_IF;
+        IF vix_Right THEN
+            vqx_Right := TRUE;
+            vqx_Left := FALSE;
+        END_IF;
+    ELSE           
+        (*Tippbetrieb*)    
+        vqx_Left := vix_Left;
+        vqx_Right := vix_Right;   
+    END_IF;
+    vsx_DirLeftRight := vqx_Right;
+END_IF;
+
+(*Stop-Bedingungen*)
+IF NOT vix_Off OR NOT vix_Power THEN  
+    vsx_Running := FALSE;
+    vqx_Right := FALSE;
+    vqx_Left := FALSE;
+END_IF; 
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

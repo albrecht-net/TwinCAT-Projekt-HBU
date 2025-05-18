@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.15">
+	<Project ProjectGUID="{48FA2F96-D5B0-4DC2-BF2F-85690ADB57AE}" Target64Bit="true" ShowHideConfigurations="#x3c7">
+		<System>
+			<Settings MaxCpus="8">
+				<Cpu CpuId="7" RtLimit="90"/>
+			</Settings>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+				<Task Id="4" Priority="35" CycleTime="100000" AmsPort="351" AdtTasks="true">
+					<Name>OPC UA Virtual</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project File="SmartLogisticsBasic.xti"/>
+		</Plc>
+		<Io>
+			<Device File="Device 1 (OPC UA Virtual).xti" Id="1"/>
+		</Io>
+	</Project>
+	<Mappings>
+		<MappingInfo Identifier="{08502001-0010-0304-0020-500810000403}" Id="#x02030010" Watchdog="00000000000000000000000000000000"/>
+	</Mappings>
+</TcSmProject>

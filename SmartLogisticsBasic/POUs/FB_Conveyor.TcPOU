@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Conveyor" Id="{aeab78c8-26d9-4e06-a37b-b7da478c53d2}" SpecialFunc="None">
+    <Declaration><![CDATA[// Bandbaustein
+FUNCTION_BLOCK FB_Conveyor
+VAR_INPUT 
+    vix_Power : BOOL; // Hauptschalter
+    vix_On : BOOL; // Band ein
+    vix_Off : BOOL; // Band aus
+    vix_Left : BOOL; // Linkslauf
+    vix_Right : BOOL; // Rechtslauf
+    vix_ManAuto : BOOL; // Band-Modus
+    viw_Speed : WORD; // Soll-Geschwindigkeit
+END_VAR
+VAR_OUTPUT 
+    vqx_MotorCw : BOOL; // Motor Uhrzeigersinn
+    vqx_MotorAcw : BOOL; // Motor Gegenuhrzeigersinn
+    vqx_VarSpeed : BOOL; // Band Enable Variable Geschwindigkeit
+    vqw_Speed : WORD; // Band Geschwindigkeit
+END_VAR
+VAR 
+    vsx_Running : BOOL; // Bandlauf-Zustandsflag
+    vsFB_RunControl : FB_RunControl; // Bandlauf-Funktionsbaustein
+    vsFB_SpeedControl : FB_SpeedControl; // Geschwindigkeitskontrolle
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(*Kontrolle des Bandlaufs An/Aus/Mode/Richtung*)
+vsFB_RunControl(vix_Power := vix_Power,
+                    vix_On := vix_On,
+                    vix_Off := vix_Off,
+                    vix_AutoMode := vix_ManAuto,
+                    vix_Left := vix_Left,
+                    vix_Right := vix_Right,
+                    vqx_Left => vqx_MotorCw,
+                    vqx_Right => vqx_MotorAcw);
+
+(*Kontrolle der Bandgeschwindigkeit*)
+vsFB_SpeedControl(viw_Speed := viw_Speed,
+                    vqx_VarSpeed => vqx_VarSpeed,
+                    vqw_Speed => vqw_Speed);
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

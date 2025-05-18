@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="GVL_System" Id="{fbd3a408-1619-4600-80f3-37c08f435d0d}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^Outputs^Control^Write Enable'}
+	bWrite_Enable AT %Q* : BOOL := TRUE;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

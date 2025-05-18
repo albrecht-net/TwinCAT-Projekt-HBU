@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="GVL_SimitSp" Id="{f3d987ca-86e8-478c-98a2-41de8ff96b20}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+END_VAR
+VAR_GLOBAL
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_Enable^Inputs^Value'}
+    Ix_Enable AT %I* : BOOL;                // Taster Freigabe (variable Geschwindigkeit)
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_Left^Inputs^Value'}
+    Ix_Left AT %I* : BOOL;                  // Taster links
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_LSensorBlue^Inputs^Value'}
+    Ix_LSensorBlue AT %I* : BOOL;           // Linker Näherungssensor Band blau
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_LSensorOrange^Inputs^Value'}
+    Ix_LSensorOrange AT %I* : BOOL;         // Linker Näherungssensor Band orange
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_LSensorPurple^Inputs^Value'}
+    Ix_LSensorPurple AT %I* : BOOL;         // Linker Näherungssensor Band lila
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_LSensorYellow^Inputs^Value'}
+    Ix_LSensorYellow AT %I* : BOOL;         // Linker Näherungssensor Band gelb
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_ManAuto^Inputs^Value'}
+    Ix_ManAuto AT %I* : BOOL;               // Schalter manueller oder automatischer Betrieb (0=manuell)
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_NotAus^Inputs^Value'}
+    Ix_NotAus AT %I* : BOOL;                // NotAus Schalter
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_Off^Inputs^Value'}
+    Ix_Off AT %I* : BOOL;                   // Taster Aus
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_On^Inputs^Value'}
+    Ix_On AT %I* : BOOL;                    // Taster Ein
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_PowerOn^Inputs^Value'}
+    Ix_PowerOn AT %I* : BOOL;               // Hauptschalter
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_Reset^Inputs^Value'}
+    Ix_Reset AT %I* : BOOL;                 // Taster Reset
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_Right^Inputs^Value'}
+    Ix_Right AT %I* : BOOL;                 // Taster rechts
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_RSensorBlue^Inputs^Value'}
+    Ix_RSensorBlue AT %I* : BOOL;           // Rechter Näherungssensor Band blau
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_RSensorOrange^Inputs^Value'}
+    Ix_RSensorOrange AT %I* : BOOL;         // Rechter Näherungssensor Band orange
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_RSensorPurple^Inputs^Value'}
+    Ix_RSensorPurple AT %I* : BOOL;         // Rechter Näherungssensor Band lila
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_RSensorYellow^Inputs^Value'}
+    Ix_RSensorYellow AT %I* : BOOL;         // Rechter Näherungssensor Band gelb
+
+    {attribute 'TcLinkToOSO' := '<0,16,0>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcInt^Iw_SliderValue^Inputs^Value'}
+    Iw_SliderValue AT %I* : WORD;           // Schieber für variablen Eingabewert
+
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_EnableVarSpeedBlue^Outputs^Value'}
+    Qx_EnableVarSpeedBlue AT %Q* : BOOL;    // Freigabe der variablen Geschwindigkeit Band blau
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_EnableVarSpeedOrange^Outputs^Value'}
+    Qx_EnableVarSpeedOrange AT %Q* : BOOL;  // Freigabe der variablen Geschwindigkeit Band orange
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_EnableVarSpeedPurple^Outputs^Value'}
+    Qx_EnableVarSpeedPurple AT %Q* : BOOL;  // Freigabe der variablen Geschwindigkeit Band lila
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_EnableVarSpeedYellow^Outputs^Value'}
+    Qx_EnableVarSpeedYellow AT %Q* : BOOL;  // Freigabe der variablen Geschwindigkeit Band gelb
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_FullSpeedBlue^Outputs^Value'}
+    Qx_FullSpeedBlue AT %Q* : BOOL;         // Eilgang Band blau
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_FullSpeedOrange^Outputs^Value'}
+    Qx_FullSpeedOrange AT %Q* : BOOL;       // Eilgang Band orange
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_FullSpeedPurple^Outputs^Value'}
+    Qx_FullSpeedPurple AT %Q* : BOOL;       // Eilgang Band lila
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_FullSpeedYellow^Outputs^Value'}
+    Qx_FullSpeedYellow AT %Q* : BOOL;       // Eilgang Band gelb
+    {attribute 'TcLinkToOSO' := '<0,1,3>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcInt^nLights^Outputs^Value'}
+    Qx_LightBlue AT %Q* : BOOL;             // Blaue Lampe
+    {attribute 'TcLinkToOSO' := '<0,1,2>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcInt^nLights^Outputs^Value'}
+    Qx_LightRed AT %Q* : BOOL;              // Rote Lampe
+    {attribute 'TcLinkToOSO' := '<0,1,1>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcInt^nLights^Outputs^Value'}
+    Qx_LightYellow AT %Q* : BOOL;           // Gelbe Lampe
+    {attribute 'TcLinkToOSO' := '<0,1,0>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcInt^nLights^Outputs^Value'}
+    Qx_LightGreen AT %Q* : BOOL;            // Grüne Lampe
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_MotorAcwBlue^Outputs^Value'}
+    Qx_MotorAcwBlue AT %Q* : BOOL;          // Motor dreht nach rechts (Gegenuhrzeigersinn Acw) Band blau
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_MotorAcwOrange^Outputs^Value'}
+    Qx_MotorAcwOrange AT %Q* : BOOL;        // Motor dreht nach rechts (Gegenuhrzeigersinn Acw) Band orange
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_MotorAcwPurple^Outputs^Value'}
+    Qx_MotorAcwPurple AT %Q* : BOOL;        // Motor dreht nach rechts (Gegenuhrzeigersinn Acw) Band lila
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_MotorAcwYellow^Outputs^Value'}
+    Qx_MotorAcwYellow AT %Q* : BOOL;        // Motor dreht nach rechts (Gegenuhrzeigersinn Acw) Band gelb
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_MotorCwBlue^Outputs^Value'}
+    Qx_MotorCwBlue AT %Q* : BOOL;           // Motor dreht nach links (Uhrzeigersinn Cw) Band blau
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_MotorCwOrange^Outputs^Value'}
+    Qx_MotorCwOrange AT %Q* : BOOL;         // Motor dreht nach links (Uhrzeigersinn Cw) Band orange
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_MotorCwPurple^Outputs^Value'}
+    Qx_MotorCwPurple AT %Q* : BOOL;         // Motor dreht nach links (Uhrzeigersinn Cw) Band lila
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_MotorCwYellow^Outputs^Value'}
+    Qx_MotorCwYellow AT %Q* : BOOL;         // Motor dreht nach links (Uhrzeigersinn Cw) Band gelb
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_StopperLeftBlue^Outputs^Value'}
+    Qx_StopperLeftBlue AT %Q* : BOOL;       // Stopper Blau Links
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_StopperLeftOrange^Outputs^Value'}
+    Qx_StopperLeftOrange AT %Q* : BOOL;     // Stopper Orange Links
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_StopperLeftPurble^Outputs^Value'}
+    Qx_StopperLeftPurble AT %Q* : BOOL;     // Stopper Violette Links
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_StopperLeftYellow^Outputs^Value'}
+    Qx_StopperLeftYellow AT %Q* : BOOL;     // Stopper Gelb Links
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_StopperRightBlue^Outputs^Value'}
+    Qx_StopperRightBlue AT %Q* : BOOL;      // Stopper Blau Rechts
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_StopperRightOrange^Outputs^Value'}
+    Qx_StopperRightOrange AT %Q* : BOOL;    // Stopper Orange Rechts
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_StopperRightPurble^Outputs^Value'}
+    Qx_StopperRightPurble AT %Q* : BOOL;    // Stopper Violette Rechts
+    {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcBin^Qx_StopperRightYellow^Outputs^Value'}
+    Qx_StopperRightYellow AT %Q* : BOOL;    // Stopper Gelb Rechts
+
+    {attribute 'TcLinkToOSO' := '<0,16,0>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcInt^nDisplays^Outputs^Value'}
+    Qw_Display AT %Q* : WORD;               // Anzeige für Ausgabewert Display oben
+    {attribute 'TcLinkToOSO' := '<0,16,0>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcInt^Qw_VarSpeedBlue^Outputs^Value'}
+    Qw_VarSpeedBlue AT %Q* : WORD;          // Variable Geschwindigkeitsvorgabe Band blue
+    {attribute 'TcLinkToOSO' := '<0,16,0>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcInt^Qw_VarSpeedOrange^Outputs^Value'}
+    Qw_VarSpeedOrange AT %Q* : WORD;        // Variable Geschwindigkeitsvorgabe Band orange
+    {attribute 'TcLinkToOSO' := '<0,16,0>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcInt^Qw_VarSpeedPurple^Outputs^Value'}
+    Qw_VarSpeedPurple AT %Q* : WORD;        // Variable Geschwindigkeitsvorgabe Band lila
+    {attribute 'TcLinkToOSO' := '<0,16,0>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcInt^Qw_VarSpeedYellow^Outputs^Value'}
+    Qw_VarSpeedYellow AT %Q* : WORD;        // Variable Geschwindigkeitsvorgabe Band yellow
+    {attribute 'TcLinkToOSO' := '<0,8,16>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcInt^nDisplays^Outputs^Value'}
+    Qb_74 AT %Q* : BYTE;                    // Anzeige für Ausgabewert Display links
+    {attribute 'TcLinkToOSO' := '<0,8,24>TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^OutSimitOpcInt^nDisplays^Outputs^Value'}
+    Qb_75 AT %Q* : BYTE;                    // Anzeige für Ausgabewert Display rechts
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
