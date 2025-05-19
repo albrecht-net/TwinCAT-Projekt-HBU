@@ -9,7 +9,7 @@
     <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
     <Name>SmartLogisticsBasic</Name>
-    <ProgramVersion>3.1.4026.15</ProgramVersion>
+    <ProgramVersion>3.1.4026.16</ProgramVersion>
     <Application>{8e1d95d5-d247-4884-b2e9-883c0927658c}</Application>
     <TypeSystem>{6b831a3c-4799-4756-b0c2-e41bff5eb2ac}</TypeSystem>
     <Implicit_Task_Info>{6aa9d32c-f705-4fd4-a18c-f843f3b5c583}</Implicit_Task_Info>
