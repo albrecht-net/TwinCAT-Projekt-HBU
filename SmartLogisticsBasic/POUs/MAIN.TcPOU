@@ -35,26 +35,6 @@ fbFlipFlop.Ix_TasterOff := bOff;
 fbProfiler(START := TRUE);
 fbFlipFlop();
 fbProfiler(START := FALSE);
-
-
-// WHILE nCounter < 1000 DO
-// 
-//     IF nCounter MOD 10 = 0 THEN
-//         fbFlipFlop.Ix_TasterOff := TRUE;
-//     ELSE
-//         fbFlipFlop.Ix_TasterOff := FALSE;
-//     END_IF
-// 
-//     IF nCounter MOD 10 = 5 THEN
-//         fbFlipFlop.Ix_TasterOn := TRUE;
-//     ELSE
-//         fbFlipFlop.Ix_TasterOn := FALSE;
-//     END_IF
-// 
-// 
-// 
-//     nCounter := nCounter + 1;
-// END_WHILE
 ]]></ST>
     </Implementation>
   </POU>
