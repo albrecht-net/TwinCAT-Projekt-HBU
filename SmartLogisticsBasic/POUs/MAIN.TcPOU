@@ -27,14 +27,14 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[// fbConvSys();
+      <ST><![CDATA[fbConvSys();
 
-fbFlipFlop.Ix_TasterOn := bOn;
-fbFlipFlop.Ix_TasterOff := bOff;
-
-fbProfiler(START := TRUE);
-fbFlipFlop();
-fbProfiler(START := FALSE);
+// fbFlipFlop.Ix_TasterOn := bOn;
+// fbFlipFlop.Ix_TasterOff := bOff;
+// 
+// fbProfiler(START := TRUE);
+// fbFlipFlop();
+// fbProfiler(START := FALSE);
 ]]></ST>
     </Implementation>
   </POU>
