@@ -7,11 +7,10 @@ VAR_INPUT
     CU: BOOL;
 END_VAR
 VAR_OUTPUT
-    // Current cunter Value
+    // Current cunter value output
     CV: INT;
 END_VAR
 VAR
-    
     // Count is up in current cycle
     bLastCount: BOOL;
 END_VAR
