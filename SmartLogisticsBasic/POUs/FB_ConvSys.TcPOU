@@ -11,7 +11,7 @@ VAR
     vsFB_ConvBlue : FB_Conveyor;
 
     vsFB_CounterR : CTU := (PV := 0);
-	vsFB_CounterL : CTU := (PV := 0);
+	vsFB_CounterL : FB_MyUpCounter;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -84,7 +84,7 @@ GVL_SimitSp.Qb_74 := WORD_TO_BYTE(vsFB_CounterR.CV);
 
 // Conveyor circulation counter left
 vsFB_CounterL(CU := GVL_SimitSp.Ix_LSensorPurple AND GVL_SimitSp.Qx_MotorCwPurple);
-GVL_SimitSp.Qb_75 := WORD_TO_BYTE(vsFB_CounterL.CV);
+GVL_SimitSp.Qb_75 := INT_TO_BYTE(vsFB_CounterL.CV);
 ]]></ST>
     </Implementation>
   </POU>

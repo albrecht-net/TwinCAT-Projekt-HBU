@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_MyUpCounter" Id="{b814e1b6-7e75-48af-87c0-eef03af6b5bf}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_MyUpCounter
+VAR_INPUT
+    // Count up signal
+    CU: BOOL;
+END_VAR
+VAR_OUTPUT
+    // Current cunter Value
+    CV: INT;
+END_VAR
+VAR
+    
+    // Count is up in current cycle
+    bLastCount: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF NOT bLastCount AND CU THEN
+    CV := CV + 1;
+END_IF
+
+// Set flag to TRUE if count is increased in current cycle
+bLastCount := CU;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
