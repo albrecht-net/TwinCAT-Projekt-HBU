@@ -12,15 +12,129 @@ VAR
 
     vsFB_CounterR : CTU := (PV := 0);
 	vsFB_CounterL : FB_MyUpCounter;
+
+    // Enumeration for state machine, conveyor
+    eStateConveyor : E_StateConveyor;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[(*Multiinstanzaufruf von Band lila*)
+      <ST><![CDATA[// Conveyor state machine
+CASE eStateConveyor OF
+    E_StateConveyor.C_INIT:
+        GVL_SimitSp.Qx_MotorAcwPurple := FALSE;
+        GVL_SimitSp.Qx_MotorCwPurple := FALSE;
+        GVL_SimitSp.Qx_FullSpeedPurple := FALSE;
+        GVL_SimitSp.Qx_MotorAcwOrange := FALSE;
+        GVL_SimitSp.Qx_MotorCwOrange := FALSE;
+        GVL_SimitSp.Qx_FullSpeedOrange := FALSE;
+        GVL_SimitSp.Qx_MotorAcwYellow := FALSE;
+        GVL_SimitSp.Qx_MotorCwYellow := FALSE;
+        GVL_SimitSp.Qx_FullSpeedYellow := FALSE;
+        GVL_SimitSp.Qx_MotorAcwBlue := FALSE;
+        GVL_SimitSp.Qx_MotorCwBlue := FALSE;
+        GVL_SimitSp.Qx_FullSpeedBlue := FALSE;
+
+        eStateConveyor := E_StateConveyor.C_NORMAL;
+
+    E_StateConveyor.C_NORMAL:
+        vsFB_ConvPurple.vix_Left := GVL_SimitSp.Ix_Left;
+        vsFB_ConvPurple.vix_Right := GVL_SimitSp.Ix_Right;
+        vsFB_ConvOrange.vix_Left := GVL_SimitSp.Ix_Left;
+        vsFB_ConvOrange.vix_Right := GVL_SimitSp.Ix_Right;
+        vsFB_ConvYellow.vix_Left := GVL_SimitSp.Ix_Left;
+        vsFB_ConvYellow.vix_Right := GVL_SimitSp.Ix_Right;
+        vsFB_ConvBlue.vix_Left := GVL_SimitSp.Ix_Left;
+        vsFB_ConvBlue.vix_Right := GVL_SimitSp.Ix_Right;
+
+        IF GVL_SimitSp.Ix_Enable THEN
+            GVL_SimitSp.Qx_LightGreen := TRUE;
+            eStateConveyor := E_StateConveyor.C_INIT_PROCESS;
+        END_IF
+
+    E_StateConveyor.C_INIT_PROCESS:
+        vsFB_ConvPurple.vix_Left := FALSE;
+        vsFB_ConvPurple.vix_Right := TRUE;
+        vsFB_ConvOrange.vix_Left := FALSE;
+        vsFB_ConvOrange.vix_Right := TRUE;
+        vsFB_ConvYellow.vix_Left := FALSE;
+        vsFB_ConvYellow.vix_Right := TRUE;
+        vsFB_ConvBlue.vix_Left := FALSE;
+        vsFB_ConvBlue.vix_Right := TRUE;
+
+        eStateConveyor := E_StateConveyor.C_PURPLE_BACK;
+
+    E_StateConveyor.C_PURPLE_BACK:
+        IF GVL_SimitSp.Ix_RSensorPurple THEN
+            vsFB_ConvPurple.vix_Left := TRUE;
+            vsFB_ConvPurple.vix_Right := FALSE;
+
+            eStateConveyor := E_StateConveyor.C_PURPLE_FORWARD;
+        END_IF
+
+    E_StateConveyor.C_PURPLE_FORWARD:
+        IF GVL_SimitSp.Ix_LSensorPurple THEN
+            vsFB_ConvPurple.vix_Left := FALSE;
+            vsFB_ConvPurple.vix_Right := TRUE;
+
+            eStateConveyor := E_StateConveyor.C_ORANGE_BACK;
+        END_IF
+
+    E_StateConveyor.C_ORANGE_BACK:
+        IF GVL_SimitSp.Ix_RSensorOrange THEN
+            vsFB_ConvOrange.vix_Left := TRUE;
+            vsFB_ConvOrange.vix_Right := FALSE;
+
+            eStateConveyor := E_StateConveyor.C_ORANGE_FORWARD;
+        END_IF
+
+    E_StateConveyor.C_ORANGE_FORWARD:
+        IF GVL_SimitSp.Ix_LSensorOrange THEN
+            vsFB_Convorange.vix_Left := FALSE;
+            vsFB_Convorange.vix_Right := TRUE;
+
+            eStateConveyor := E_StateConveyor.C_YELLOW_BACK;
+        END_IF
+
+    E_StateConveyor.C_YELLOW_BACK:
+        IF GVL_SimitSp.Ix_RSensorYellow THEN
+            vsFB_ConvYellow.vix_Left := TRUE;
+            vsFB_ConvYellow.vix_Right := FALSE;
+
+            eStateConveyor := E_StateConveyor.C_YELLOW_FORWARD;
+        END_IF
+
+    E_StateConveyor.C_YELLOW_FORWARD:
+        IF GVL_SimitSp.Ix_LSensorYellow THEN
+            vsFB_Convyellow.vix_Left := FALSE;
+            vsFB_Convyellow.vix_Right := TRUE;
+
+            eStateConveyor := E_StateConveyor.C_BLUE_BACK;
+        END_IF
+
+    E_StateConveyor.C_BLUE_BACK:
+        IF GVL_SimitSp.Ix_RSensorBlue THEN
+            vsFB_ConvBlue.vix_Left := TRUE;
+            vsFB_ConvBlue.vix_Right := FALSE;
+
+            eStateConveyor := E_StateConveyor.C_BLUE_FORWARD;
+        END_IF
+
+    E_StateConveyor.C_BLUE_FORWARD:
+        IF GVL_SimitSp.Ix_LSensorblue THEN
+            vsFB_Convblue.vix_Left := FALSE;
+            vsFB_Convblue.vix_Right := TRUE;
+
+            eStateConveyor := E_StateConveyor.C_PURPLE_BACK;
+        END_IF
+
+    ELSE
+        eStateConveyor := E_StateConveyor.C_INIT;
+END_CASE
+
+(*Multiinstanzaufruf von Band lila*)
 vsFB_ConvPurple(vix_Power := GVL_SimitSp.Ix_PowerOn,
                 vix_On := GVL_SimitSp.Ix_On,
                 vix_Off := GVL_SimitSp.Ix_Off,
-                vix_Left := GVL_SimitSp.Ix_Left,
-                vix_Right := GVL_SimitSp.Ix_Right,
                 vix_ManAuto := GVL_SimitSp.Ix_ManAuto,
                 viw_Speed := GVL_SimitSp.Iw_SliderValue,
                 vqx_MotorCw => GVL_SimitSp.Qx_MotorCwPurple,
@@ -32,8 +146,6 @@ vsFB_ConvPurple(vix_Power := GVL_SimitSp.Ix_PowerOn,
 vsFB_ConvOrange(vix_Power := GVL_SimitSp.Ix_PowerOn,
                 vix_On := GVL_SimitSp.Ix_On,
                 vix_Off := GVL_SimitSp.Ix_Off,
-                vix_Left := GVL_SimitSp.Ix_Left,
-                vix_Right := GVL_SimitSp.Ix_Right,
                 vix_ManAuto := GVL_SimitSp.Ix_ManAuto,
                 viw_Speed := GVL_SimitSp.Iw_SliderValue,
                 vqx_MotorCw => GVL_SimitSp.Qx_MotorCwOrange,
@@ -45,8 +157,6 @@ vsFB_ConvOrange(vix_Power := GVL_SimitSp.Ix_PowerOn,
 vsFB_ConvYellow(vix_Power := GVL_SimitSp.Ix_PowerOn,
                 vix_On := GVL_SimitSp.Ix_On,
                 vix_Off := GVL_SimitSp.Ix_Off,
-                vix_Left := GVL_SimitSp.Ix_Left,
-                vix_Right := GVL_SimitSp.Ix_Right,
                 vix_ManAuto := GVL_SimitSp.Ix_ManAuto,
                 viw_Speed := GVL_SimitSp.Iw_SliderValue,
                 vqx_MotorCw => GVL_SimitSp.Qx_MotorCwYellow,
@@ -58,8 +168,6 @@ vsFB_ConvYellow(vix_Power := GVL_SimitSp.Ix_PowerOn,
 vsFB_ConvBlue(vix_Power := GVL_SimitSp.Ix_PowerOn,
                 vix_On := GVL_SimitSp.Ix_On,
                 vix_Off := GVL_SimitSp.Ix_Off,
-                vix_Left := GVL_SimitSp.Ix_Left,
-                vix_Right := GVL_SimitSp.Ix_Right,
                 vix_ManAuto := GVL_SimitSp.Ix_ManAuto,
                 viw_Speed := GVL_SimitSp.Iw_SliderValue,
                 vqx_MotorCw => GVL_SimitSp.Qx_MotorCwBlue,
