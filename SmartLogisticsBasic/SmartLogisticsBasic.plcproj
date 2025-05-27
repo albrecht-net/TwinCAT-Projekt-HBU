@@ -18,6 +18,9 @@
     <LibraryReferences>{4e277613-5db5-4eaf-8eb2-16fd032425d2}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\E_StateConveyor.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\GVL_SimitSp.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
@@ -29,6 +32,9 @@
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Aufgaben\FB_AuFlankenauswertung.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\FB_Conveyor.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -36,6 +42,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\FB_FlPos.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FB_MyUpCounter.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\FB_RunControl.TcPOU">
