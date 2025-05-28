@@ -33,7 +33,6 @@ CASE eStateConveyor OF
         GVL_SimitSp.Qx_MotorAcwBlue := FALSE;
         GVL_SimitSp.Qx_MotorCwBlue := FALSE;
         GVL_SimitSp.Qx_FullSpeedBlue := FALSE;
-
         eStateConveyor := E_StateConveyor.C_NORMAL;
 
     E_StateConveyor.C_NORMAL:
@@ -130,6 +129,11 @@ CASE eStateConveyor OF
     ELSE
         eStateConveyor := E_StateConveyor.C_INIT;
 END_CASE
+
+// Reset conveyor state machine
+IF GVL_SimitSp.Ix_Reset THEN
+    eStateConveyor := E_StateConveyor.C_INIT;
+END_IF
 
 (*Multiinstanzaufruf von Band lila*)
 vsFB_ConvPurple(vix_Power := GVL_SimitSp.Ix_PowerOn,
