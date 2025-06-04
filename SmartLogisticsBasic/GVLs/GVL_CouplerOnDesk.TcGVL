@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="GVL_CouplerOnDesk" Id="{13f1aa03-a0f5-4dff-8f1f-7d974a2345d1}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+    // Selector switch is activated (TRUE = left or right)
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Digital Input (EL1014)^Channel 1^Input'}
+    bSelectorSwitch AT %I* : BOOL;
+    // Selector switch is left (FALSE = left)
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Digital Input (EL1014)^Channel 2^Input'}
+    bSelectorSwitchLeftNC AT %I* : BOOL;
+    // Selector switch is right (FALSE = right)
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Digital Input (EL1014)^Channel 3^Input'}
+    bSelectorSwitchRightNC AT %I* : BOOL;
+    // Selector switch LED
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Digital Output (EL2004)^Channel 1^Output'}
+    bSelectorSwitchLed AT %Q* : BOOL;
+    // Potentiometer voltage tap
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Analog Input (EL3064)^AI Standard Channel 1^Value'}
+    nPotentiomerValue AT %I* : INT;
+    // Potentiometer supply
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Analog Output (EL4102)^Channel 1^Output'}
+    nPotentiometerSupply AT %Q* : INT;
+    // Display navigation button Up
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Status^Up'}
+    bNavUp AT %I* : BOOL;
+    // Display navigation button Down
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Status^Down'}
+    bNavDown AT %I* : BOOL;
+    // Display navigation button Left
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Status^Left'}
+    bNavLeft AT %I* : BOOL;
+    // Display navigation button Right
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Status^Right'}
+    bNavRight AT %I* : BOOL;
+    // Display navigation button Enter
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Status^Enter'}
+    bNavEnter AT %I* : BOOL;
+    // Display row 1
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Outputs^Value row 1'}
+    nDisplayRow1 AT %Q* : INT;
+    // Display row 1
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Outputs^Value row 2'}
+    nDisplayRow2 AT %Q* : INT;
+
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Inputs^DevState'}
+    nEtherCatDevState AT %I* : UINT;
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^SyncUnits^[DeskGroup]^PlcTask^InfoData^State'}
+    bHotConnectGrpWcState AT %I* : BOOL;
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^SyncUnits^[DeskGroup]^PlcTask^InfoData^State'}
+    bHotConnectGrpState AT %I* : UINT;
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^ID^ID'}
+    nCouplerId AT %I* : UINT;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

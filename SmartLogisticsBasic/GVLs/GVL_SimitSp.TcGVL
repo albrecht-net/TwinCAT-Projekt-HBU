@@ -3,8 +3,6 @@
   <GVL Name="GVL_SimitSp" Id="{f3d987ca-86e8-478c-98a2-41de8ff96b20}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-END_VAR
-VAR_GLOBAL
     {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_Enable^Inputs^Value'}
     Ix_Enable AT %I* : BOOL;                // Taster Freigabe (variable Geschwindigkeit)
     {attribute 'TcLinkTo' := 'TIID^Device 1 (OPC UA Virtual)^Siemens.Simit.OpcUaServer.OpcUaServerService^urn:vmw11:Siemens:Simit.OpcUaServer.OPC UA Server^InSimitOpcBin^Ix_Left^Inputs^Value'}

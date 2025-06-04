@@ -342,7 +342,7 @@ only active in subscription mode]]></Comment>
 				</Value>
 				<Value>
 					<Name>ServerUrl</Name>
-					<String>opc.tcp://vpc-tia.albrecht-net.ch:47144/</String>
+					<String>opc.tcp://1.vpc-simit.albrecht-net.ch:47144/</String>
 				</Value>
 				<Value>
 					<Name>ReadCycleTime</Name>

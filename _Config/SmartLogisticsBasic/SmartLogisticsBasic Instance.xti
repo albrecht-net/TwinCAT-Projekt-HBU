@@ -172,6 +172,37 @@
 				<Link VarA="PlcTask Outputs^GVL_SimitSp.Qx_LightRed" VarB="Outputs^Value" AutoLink="true" Size="1" OffsB="2"/>
 				<Link VarA="PlcTask Outputs^GVL_SimitSp.Qx_LightYellow" VarB="Outputs^Value" AutoLink="true" Size="1" OffsB="1"/>
 			</OwnerB>
+			<OwnerB Name="TIID^Master (EtherCAT)">
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bHotConnectGrpState" VarB="SyncUnits^[DeskGroup]^PlcTask^InfoData^State" AutoLink="true"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bHotConnectGrpWcState" VarB="SyncUnits^[DeskGroup]^PlcTask^InfoData^State" AutoLink="true" Size="8"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.nEtherCatDevState" VarB="Inputs^DevState" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Master (EtherCAT)^Term 1 (EK1101)">
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.nCouplerId" VarB="ID^ID" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Master (EtherCAT)^Term 1 (EK1101)^Analog Input (EL3064)">
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.nPotentiomerValue" VarB="AI Standard Channel 1^Value" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Master (EtherCAT)^Term 1 (EK1101)^Analog Output (EL4102)">
+				<Link VarA="PlcTask Outputs^GVL_CouplerOnDesk.nPotentiometerSupply" VarB="Channel 1^Output" AutoLink="true"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Master (EtherCAT)^Term 1 (EK1101)^Digital Input (EL1014)">
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bSelectorSwitch" VarB="Channel 1^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bSelectorSwitchLeftNC" VarB="Channel 2^Input" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bSelectorSwitchRightNC" VarB="Channel 3^Input" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Master (EtherCAT)^Term 1 (EK1101)^Digital Output (EL2004)">
+				<Link VarA="PlcTask Outputs^GVL_CouplerOnDesk.bSelectorSwitchLed" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)">
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavDown" VarB="DIS Inputs^Status^Down" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavEnter" VarB="DIS Inputs^Status^Enter" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavLeft" VarB="DIS Inputs^Status^Left" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavRight" VarB="DIS Inputs^Status^Right" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavUp" VarB="DIS Inputs^Status^Up" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_CouplerOnDesk.nDisplayRow1" VarB="DIS Outputs^Value row 1" AutoLink="true"/>
+				<Link VarA="PlcTask Outputs^GVL_CouplerOnDesk.nDisplayRow2" VarB="DIS Outputs^Value row 2" AutoLink="true"/>
+			</OwnerB>
 		</OwnerA>
 	</Mappings>
 </TcSmItem>
