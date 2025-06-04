@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Chrono" Id="{51e91978-a247-4488-a028-41041fe7c3f6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Chrono
+VAR_INPUT
+    bLap : BOOL;
+END_VAR
+VAR_OUTPUT
+    stLapDuration : TIME;
+END_VAR
+VAR
+    // Reads local windows system time 
+    fbSysTime : NT_GetTime;
+
+    
+    stLastTime : TIME_OF_DAY;
+    stLapTime : TIME_OF_DAY;
+
+    bLapIsset : BOOL;
+	bSysTimeBusyIsset: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Start SysTime execution on bLap impulse
+IF bLap AND NOT bLapIsset THEN
+    fbSysTime.START := TRUE;
+ELSE
+    fbSysTime.START := FALSE;
+END_IF
+bLapIsset := bLap;
+
+// Cyclic SysTime execution
+fbSysTime();
+
+// Remap LastTime and LapTime when SysTime finished
+IF bSysTimeBusyIsset AND NOT fbSysTime.BUSY THEN
+    stLastTime := stLapTime;
+    stLapTime := SYSTEMTIME_TO_TOD(fbSysTime.TIMESTR);
+END_IF
+bSysTimeBusyIsset := fbSysTime.BUSY;
+
+// Default output calculated duration
+stLapDuration := stLapTime - stLastTime;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

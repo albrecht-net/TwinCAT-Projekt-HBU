@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_ConvStatistic" Id="{f93cda1a-379b-43cf-a2b0-159c80785fe5}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ConvStatistic
+VAR_INPUT
+    // Time to be written into the ring buffer
+    tLapTime : TIME;
+    bAddValue : BOOL;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	// Last 10 lap times
+	aLapTimes: ARRAY[0..9] OF TIME;
+    // Current index of array
+    nIndex : INT := 0;
+	bAddValueIsset: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF bAddValue AND NOT bAddValueIsset THEN
+    aLapTimes[nIndex] := tLapTime;
+
+    IF nIndex >= 9 THEN
+        nIndex := 0;
+    ELSE
+        nIndex := nIndex + 1;
+    END_IF
+END_IF
+
+bAddValueIsset := bAddValue;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

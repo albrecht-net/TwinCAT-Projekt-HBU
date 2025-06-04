@@ -15,6 +15,9 @@ VAR
 
     // Enumeration for state machine, conveyor
     eStateConveyor : E_StateConveyor;
+
+    fbChrono : FB_Chrono;
+    fbConvLapTimeStatistic : FB_ConvStatistic;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -197,7 +200,20 @@ GVL_SimitSp.Qb_74 := WORD_TO_BYTE(vsFB_CounterR.CV);
 // Conveyor circulation counter left
 vsFB_CounterL(CU := GVL_SimitSp.Ix_LSensorPurple AND GVL_SimitSp.Qx_MotorCwPurple);
 GVL_SimitSp.Qb_75 := INT_TO_BYTE(vsFB_CounterL.CV);
-]]></ST>
+
+// Lap time
+fbChrono(bLap := GVL_SimitSp.Ix_LSensorPurple);
+
+// Lap time history buffer
+fbConvLapTimeStatistic(tLapTime := fbChrono.stLapDuration);
+IF GVL_SimitSp.Ix_LSensorPurple THEN
+    fbConvLapTimeStatistic.bAddValue := TRUE;
+ELSE
+    fbConvLapTimeStatistic.bAddValue := FALSE;
+END_IF
+
+// Blink LED on sensor left of each conveyor
+GVL_CouplerOnDesk.bSelectorSwitchLed := GVL_SimitSp.Ix_LSensorPurple OR GVL_SimitSp.Ix_LSensorBlue OR GVL_SimitSp.Ix_LSensorYellow OR GVL_SimitSp.Ix_LSensorOrange;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

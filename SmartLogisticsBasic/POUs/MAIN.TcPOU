@@ -17,12 +17,6 @@ VAR_TEMP
 END_VAR
 VAR
     fbConvSys : FB_ConvSys;
-
-    nCounter : INT := 0;
-
-    fbProfiler : Profiler;
-    bOn: BOOL;
-    bOff: BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
