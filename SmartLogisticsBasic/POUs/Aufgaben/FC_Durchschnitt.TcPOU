@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FC_Durchschnitt" Id="{f361640f-7cf4-493f-8411-57d5442dee26}" SpecialFunc="None">
+    <Declaration><![CDATA[// Returns the average value of the 3 provided numbers.
+FUNCTION FC_Durchschnitt : REAL
+VAR_INPUT
+    vii_Wert_1 : INT;
+    vii_Wert_2 : INT;
+    vii_Wert_3 : INT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FC_Durchschnitt := TO_REAL(vii_Wert_1 + vii_Wert_2 + vii_Wert_3) / 3.0;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
