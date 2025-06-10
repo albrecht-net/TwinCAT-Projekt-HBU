@@ -6,16 +6,20 @@
 				<Cpu CpuId="7" RtLimit="90"/>
 			</Settings>
 			<Tasks>
-				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
-					<Name>PlcTask</Name>
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AutoStart="false" AdtTasks="true">
+					<Name>PlcTaskLogistics</Name>
 				</Task>
-				<Task Id="4" Priority="35" CycleTime="100000" AmsPort="351" AdtTasks="true">
+				<Task Id="4" Priority="35" CycleTime="100000" AmsPort="351" AutoStart="false" AdtTasks="true">
 					<Name>OPC UA Virtual</Name>
+				</Task>
+				<Task Id="5" Priority="21" CycleTime="100000" AmsPort="352" AdtTasks="true">
+					<Name>PlcTaskSort</Name>
 				</Task>
 			</Tasks>
 		</System>
 		<Plc>
 			<Project File="SmartLogisticsBasic.xti"/>
+			<Project File="Bubblesort.xti"/>
 		</Plc>
 		<Io>
 			<Device File="Device 1 (OPC UA Virtual).xti" Id="1"/>
