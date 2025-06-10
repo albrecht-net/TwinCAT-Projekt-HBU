@@ -18,6 +18,8 @@ VAR
 
     fbChrono : FB_Chrono;
     fbConvLapTimeStatistic : FB_ConvStatistic;
+	// Maximale Rundenzeit der 10 letzten Umläufe
+	tMaxLapTime: TIME;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -208,6 +210,7 @@ fbChrono(bLap := GVL_SimitSp.Ix_LSensorPurple);
 fbConvLapTimeStatistic(tLapTime := fbChrono.stLapDuration);
 IF GVL_SimitSp.Ix_LSensorPurple THEN
     fbConvLapTimeStatistic.bAddValue := TRUE;
+    tMaxLapTime := FC_GetMaxLapTime(fbConvLapTimeStatistic.aLapTimes);
 ELSE
     fbConvLapTimeStatistic.bAddValue := FALSE;
 END_IF
