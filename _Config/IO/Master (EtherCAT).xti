@@ -4,7 +4,7 @@
 		<Name>__FILENAME__</Name>
 		<AddressInfo>
 			<Pnp>
-				<DeviceDesc>Ethernet (TwinCAT-Intel PCI Ethernet Adapter (Gigab</DeviceDesc>
+				<DeviceDesc>EtherCAT (TwinCAT-Intel PCI Ethernet Adapter (Gigab</DeviceDesc>
 				<DeviceName>\DEVICE\{540BE441-5F15-4408-9821-A66A9242B7B4}</DeviceName>
 				<DeviceData>482ae3ad67bc</DeviceData>
 			</Pnp>
@@ -12,7 +12,7 @@
 		<Image Id="2" AddrType="9" ImageType="3">
 			<Name>Prozessabbild</Name>
 		</Image>
-		<Box File="Term 1 (EK1101).xti" Id="1">
+		<Box File="Term 1 (EK1101).xti" Id="2">
 			<EtherCAT PortABoxInfo="#xffffffff"/>
 		</Box>
 		<EtherCAT CheckSlaveIdentity="true">
