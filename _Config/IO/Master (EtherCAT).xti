@@ -12,7 +12,7 @@
 		<Image Id="2" AddrType="9" ImageType="3">
 			<Name>Prozessabbild</Name>
 		</Image>
-		<Box File="Term 1 (EK1101).xti" Id="2">
+		<Box File="Term 1 (EK1101).xti" Id="1">
 			<EtherCAT PortABoxInfo="#xffffffff"/>
 		</Box>
 		<EtherCAT CheckSlaveIdentity="true">

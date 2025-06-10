@@ -23,7 +23,7 @@
 	<ImageDatas>
 		<ImageData Id="1000">424de6000000000000007600000028000000100000000e000000010004000000000070000000000000000000000000000000000000000000000000008000008000000080800080000000800080008080000080808000c0c0c0000000ff0000ff000000ffff00ff000000ff00ff00ffff0000ffffff00dddddddddddddddddd777777777777dddddddddd797ddddddddddddd777ddddddddddddddddddddddddddddddddddddddd00dd0ddddd00dd8088080888808808d0dd0d0dddd0dddd8088080008808888d0dd0d0dd0d0dddd8088080880808808dd00dd000ddd00dddddddddddddddddd</ImageData>
 	</ImageDatas>
-	<Device Id="1" DevType="160" AmsNetId="192.168.10.102.2.1" RemoteName="Device 1 (OPC UA Virtual)_Geräte">
+	<Device Id="1" Disabled="true" DevType="160" AmsNetId="192.168.10.102.2.1" RemoteName="Device 1 (OPC UA Virtual)_Geräte">
 		<Name>__FILENAME__</Name>
 		<ImageId>1000</ImageId>
 		<AddressInfo>
