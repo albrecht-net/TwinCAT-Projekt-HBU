@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FC_ClearArray" Id="{40533630-51ab-4995-949f-8260bc26f2a6}" SpecialFunc="None">
+    <Declaration><![CDATA[// Clear all values of given array.
+FUNCTION FC_ClearArray : BOOL
+VAR_IN_OUT
+    // Measurements
+    aMesswerte : ARRAY[1..20] OF REAL;
+END_VAR
+VAR
+    // Loop index
+    vti_Index : INT := 1;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[WHILE vti_Index <= 20 DO
+    // Set value
+    aMesswerte[vti_Index] := 0;
+
+    // Next index
+    vti_Index := vti_Index + 1;
+END_WHILE
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

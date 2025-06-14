@@ -38,6 +38,9 @@
     <Compile Include="POUs\Aufgaben\FB_AuFlankenauswertung.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Aufgaben\FC_ClearArray.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Aufgaben\FC_Durchschnitt.TcPOU">
       <SubType>Code</SubType>
     </Compile>
