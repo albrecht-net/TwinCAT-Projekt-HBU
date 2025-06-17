@@ -3,6 +3,8 @@
   <POU Name="MAIN" Id="{bd698af8-f7cd-4674-81e5-59d22d07e957}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
+    vix_Temp : REAL;
+    vqx_IsValid : BOOL;
     // Sort Up
     bAsc : BOOL;
     // Sort Down
@@ -17,13 +19,15 @@ END_VAR
     <Implementation>
       <ST><![CDATA[fbSort(aValues := aValues);
 
-IF GVL_CouplerOnDesk.bNavUp THEN
+IF GVL_CouplerOnDesk.bNavUp OR bAsc THEN
     fbSort.SortAsc();
 END_IF
 
-IF GVL_CouplerOnDesk.bNavDown THEN
+IF GVL_CouplerOnDesk.bNavDown OR bDesc THEN
     fbSort.SortDesc();
-END_IF]]></ST>
+END_IF
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
