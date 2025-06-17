@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{bd698af8-f7cd-4674-81e5-59d22d07e957}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+    iNum : UINT;
+    fbWarehouse : FB_Warehouse;
+	bTasteEinlagern: BOOL;
+	bTasteAuslagern: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbWarehouse();
+
+
+// Store new material
+IF bTasteEinlagern THEN
+    fbWarehouse.Store(iNum);
+END_IF
+
+// Unload selected material
+IF bTasteAuslagern THEN
+    fbWarehouse.Unload(iNum);
+END_IF]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

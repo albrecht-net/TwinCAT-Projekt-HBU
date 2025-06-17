@@ -12,14 +12,10 @@
 			</Tasks>
 		</System>
 		<Plc>
-			<Project File="Bubblesort.xti"/>
+			<Project File="Hochregallager.xti"/>
 		</Plc>
 		<Io>
 			<Device File="Master (EtherCAT).xti" Id="2"/>
 		</Io>
 	</Project>
-	<Mappings>
-		<MappingInfo Identifier="{00000000-2041-0850-4020-500820000403}" Id="#x02030010"/>
-		<MappingInfo Identifier="{00000000-2041-0850-4020-500831000403}" Id="#x02030020"/>
-	</Mappings>
 </TcSmProject>

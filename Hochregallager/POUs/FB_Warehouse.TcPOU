@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_Warehouse" Id="{6b75effa-3e16-42b7-b2f7-a7912269ea40}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_Warehouse
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+    aStorage : ARRAY[1..7,1..12] OF UINT;
+    // Current column
+    iX : INT := 1;
+    // Current row
+    iY : INT := 1;
+
+    iLastStoredMaterial : UINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Store" Id="{a4774fbb-a7d3-4e50-96fa-61783185cd1a}">
+      <Declaration><![CDATA[METHOD Store : BOOL
+VAR_INPUT
+    iMaterialNumber : UINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[IF iMaterialNumber = 0 THEN
+    Store := FALSE;
+    RETURN;
+END_IF
+
+// Prevent multiple input of same material number
+IF iMaterialNumber = iLastStoredMaterial THEN
+    Store := FALSE;
+    RETURN;
+ELSE
+    iLastStoredMaterial := iMaterialNumber;
+END_IF
+
+WHILE iY <= 7 DO
+    WHILE iX <= 12 DO
+        IF aStorage[iY, iX] = 0 THEN
+            aStorage[iY, iX] := iMaterialNumber;
+            Store := TRUE;
+            RETURN;
+        END_IF
+
+        iX := iX + 1;
+    END_WHILE
+
+    iY := iY + 1;
+END_WHILE
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Unload" Id="{b94e3581-2b6f-47be-979a-603286804c4f}">
+      <Declaration><![CDATA[METHOD Unload : BOOL
+VAR_INPUT
+    iMaterialNumber : UINT;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
