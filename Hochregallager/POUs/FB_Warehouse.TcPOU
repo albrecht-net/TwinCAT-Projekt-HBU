@@ -14,6 +14,7 @@ VAR
     iY : INT := 1;
 
     iLastStoredMaterial : UINT;
+    iLastUnloadedMaterial : UINT;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -37,6 +38,8 @@ IF iMaterialNumber = iLastStoredMaterial THEN
     RETURN;
 ELSE
     iLastStoredMaterial := iMaterialNumber;
+    iX := 1;
+    iY := 1;
 END_IF
 
 WHILE iY <= 7 DO
@@ -62,7 +65,35 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[]]></ST>
+        <ST><![CDATA[IF iMaterialNumber = 0 THEN
+    Unload := FALSE;
+    RETURN;
+END_IF
+
+// Prevent multiple input of same material number
+IF iMaterialNumber = iLastUnloadedMaterial THEN
+    Unload := FALSE;
+    RETURN;
+ELSE
+    iLastUnloadedMaterial := iMaterialNumber;
+    iX := 1;
+    iY := 1;
+END_IF
+
+WHILE iY <= 7 DO
+    WHILE iX <= 12 DO
+        IF aStorage[iY, iX] = iMaterialNumber THEN
+            aStorage[iY, iX] := 0;
+            Unload := TRUE;
+            RETURN;
+        END_IF
+
+        iX := iX + 1;
+    END_WHILE
+
+    iY := iY + 1;
+END_WHILE
+]]></ST>
       </Implementation>
     </Method>
   </POU>

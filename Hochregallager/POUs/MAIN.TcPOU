@@ -14,12 +14,12 @@ END_VAR
 
 
 // Store new material
-IF bTasteEinlagern THEN
+IF bTasteEinlagern OR GVL_CouplerOnDesk.bNavUp THEN
     fbWarehouse.Store(iNum);
 END_IF
 
 // Unload selected material
-IF bTasteAuslagern THEN
+IF bTasteAuslagern OR GVL_CouplerOnDesk.bNavDown THEN
     fbWarehouse.Unload(iNum);
 END_IF]]></ST>
     </Implementation>
