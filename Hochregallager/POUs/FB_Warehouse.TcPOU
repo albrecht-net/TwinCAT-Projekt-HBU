@@ -5,6 +5,10 @@
 VAR_INPUT
 END_VAR
 VAR_OUTPUT
+    nSumme : UINT;
+    fMittelwert : REAL;
+    nMinWert : UINT;
+    nMaxWert : UINT;
 END_VAR
 VAR
     aStorage : ARRAY[1..7,1..12] OF UINT;
@@ -20,6 +24,48 @@ END_VAR
     <Implementation>
       <ST><![CDATA[]]></ST>
     </Implementation>
+    <Method Name="RefreshStatistics" Id="{d17ab08b-5503-45ad-8289-e777bacfd648}">
+      <Declaration><![CDATA[METHOD PRIVATE RefreshStatistics : BOOL
+VAR_INPUT
+    nMaterialCount : INT := 0;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Set all statistics to 0
+nSumme := 0;
+fMittelwert := 0;
+nMinWert := 65535;
+nMaxWert := 0;
+
+WHILE iY <= 7 DO
+    WHILE iX <= 12 DO
+        IF aStorage[iY, iX] <> 0 THEN
+            // Increase temporary counter for average calculation
+            nMaterialCount := nMaterialCount + 1;
+
+            // Calculate sum of material numbers
+            nSumme := nSumme + aStorage[iY, iX];
+
+            // Get lowest material number
+            IF nMinWert > aStorage[iY, iX] THEN
+                nMinWert := aStorage[iY, iX];
+            END_IF
+
+            // Get highest material number
+            IF nMaxWert < aStorage[iY, iX] THEN
+                nMaxWert := aStorage[iY, iX];
+            END_IF
+        END_IF
+
+        iX := iX + 1;
+    END_WHILE
+
+    iY := iY + 1;
+END_WHILE
+
+// Calculate average]]></ST>
+      </Implementation>
+    </Method>
     <Method Name="Store" Id="{a4774fbb-a7d3-4e50-96fa-61783185cd1a}">
       <Declaration><![CDATA[METHOD Store : BOOL
 VAR_INPUT

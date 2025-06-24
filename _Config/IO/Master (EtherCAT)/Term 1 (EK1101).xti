@@ -9,7 +9,6 @@
 		<EtherCAT SlaveType="1" PdiType="#x0d04" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x044d2c52" RevisionNo="#x00120000" PortPhys="305" IdentificationAdo="4096" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1101 EtherCAT Coupler (2A E-Bus, ID switch)" Desc="EK1101">
 			<SyncMan>001002000000010004000000000000000000001000000000</SyncMan>
 			<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
-			<HcData>06000000080000000200000000000000090000000000000000000000000000004465736b47726f757000</HcData>
 			<Pdo Name="ID" Index="#x1a00" Flags="#x0010" SyncMan="0">
 				<Entry Name="ID" Index="#x6000" Sub="#x01">
 					<Type>UINT</Type>

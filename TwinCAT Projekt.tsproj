@@ -15,8 +15,7 @@
 			<Project File="Hochregallager.xti"/>
 		</Plc>
 		<Io>
-			<Device File="Master (EtherCAT).xti" Id="2"/>
-			<Device File="PN (Profinet Controller).xti" Id="1"/>
+			<Device File="Master (EtherCAT).xti" Id="1"/>
 		</Io>
 	</Project>
 	<Mappings>
