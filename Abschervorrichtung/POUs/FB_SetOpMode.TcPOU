@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_SetOpMode" Id="{51a5e961-9327-43a4-8da9-9265efc50473}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_SetOpMode
+VAR_INPUT
+    // Anlage einschalten
+    bMachineOn : BOOL;
+    // Anlage ausschalten (NC)
+    bMachineOff : BOOL;
+    // False: Manual Mode, True: Auto Mode
+    bSwitchManualAuto : BOOL;
+    // Not-Aus (NC)
+    bEmergOff : BOOL;
+    // False: Dauerbetrieb, True: Einzelschrittbetrieb
+    bSwitchMultiSingleStep : BOOL;
+    // Taster Start
+    bStart : BOOL;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
