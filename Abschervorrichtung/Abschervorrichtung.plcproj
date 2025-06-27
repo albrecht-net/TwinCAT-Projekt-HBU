@@ -8,7 +8,7 @@
     <DownloadApplicationInfo>true</DownloadApplicationInfo>
     <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
-    <Name>Bubblesort</Name>
+    <Name>Abschervorrichtung</Name>
     <ProgramVersion>3.1.4026.16</ProgramVersion>
     <Application>{9e1d0235-269e-4a89-ad74-8b76713ecfbd}</Application>
     <TypeSystem>{ba7c66ae-5300-4ac4-a692-62c9ea4c7bb1}</TypeSystem>
@@ -22,9 +22,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PlcTask.TcTTO">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\FB_Sort.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
@@ -53,7 +50,7 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Bubblesort.tmc">
+    <None Include="Abschervorrichtung.tmc">
       <SubType>Content</SubType>
     </None>
   </ItemGroup>

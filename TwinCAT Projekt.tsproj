@@ -12,7 +12,7 @@
 			</Tasks>
 		</System>
 		<Plc>
-			<Project File="Bubblesort.xti"/>
+			<Project File="Abschervorrichtung.xti"/>
 		</Plc>
 		<Io>
 			<Device File="Master (EtherCAT).xti" Id="1"/>
