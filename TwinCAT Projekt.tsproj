@@ -15,7 +15,7 @@
 			<Project File="Bubblesort.xti"/>
 		</Plc>
 		<Io>
-			<Device File="Master (EtherCAT).xti" Id="2"/>
+			<Device File="Master (EtherCAT).xti" Id="1"/>
 		</Io>
 	</Project>
 	<Mappings>
