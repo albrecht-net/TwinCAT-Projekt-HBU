@@ -17,12 +17,72 @@ VAR_INPUT
     bStart : BOOL;
 END_VAR
 VAR_OUTPUT
+    stOpMode : ST_OpMode;
 END_VAR
 VAR
+    // Flankenerkennung Start Taste
+    bStartIsPressed : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[IF NOT bEmergOff THEN
+    // Reset whole output struct
+    MEMSET(destAddr := ADR(stOpMode), fillByte := 0, n := SIZEOF(stOpMode));
+    // Set warning bit to true
+    stOpMode.bWarning := TRUE;
+
+    RETURN;
+END_IF
+
+IF NOT stOpMode.bMachineOn AND bMachineOn THEN
+    stOpMode.bMachineOn := TRUE;
+ELSIF stOpMode.bMachineOn AND NOT bMachineOff THEN
+    // Reset whole output struct
+    MEMSET(destAddr := ADR(stOpMode), fillByte := 0, n := SIZEOF(stOpMode));
+
+    RETURN;
+END_IF
+
+// Do nothing is machine is set to off
+IF NOT stOpMode.bMachineOn THEN
+    RETURN;
+END_IF
+
+// Auto Mode, Manual Mode
+IF bSwitchManualAuto THEN
+    stOpMode.bmodeAutomatic := TRUE;
+    stOpMode.bModeManual := FALSE;
+ELSE
+    stOpMode.bmodeAutomatic := FALSE;
+    stOpMode.bModeManual := TRUE;
+END_IF
+
+// Single or multi step mode
+IF bSwitchMultiSingleStep THEN
+    stOpMode.bSingleStep := TRUE;
+    stOpMode.bMultiStep := FALSE;
+ELSE
+    stOpMode.bSingleStep := FALSE;
+    stOpMode.bMultiStep := TRUE;
+END_IF
+
+
+// Set impulse to default false
+stOpMode.bImpSingleStep := FALSE;
+stOpMode.bImpMultiStep := FALSE;
+
+// Rising edge detection start button
+IF NOT bStartIsPressed AND bStart THEN
+    IF stOpMode.bSingleStep THEN
+        // Set impulse for single step mode
+        stOpMode.bImpSingleStep := TRUE;
+    ELSIF stOpMode.bMultiStep THEN
+        // Set impulse for multi step mode
+        stOpMode.bImpMultiStep := TRUE;
+    END_IF
+END_IF
+bStartIsPressed := bStart;
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
