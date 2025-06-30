@@ -3,10 +3,12 @@
   <POU Name="MAIN" Id="{bd698af8-f7cd-4674-81e5-59d22d07e957}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
+    fbSetOpMode : FB_SetOpMode();
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[fbSetOpMode(bMachineOn := GVL_CouplerOnDesk.bNavEnter);
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

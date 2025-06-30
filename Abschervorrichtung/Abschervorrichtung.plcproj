@@ -18,6 +18,9 @@
     <LibraryReferences>{00bfd0ff-e371-4084-bcee-289ff89b6001}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\ST_OpMode.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GVLs\GVL_CouplerOnDesk.TcGVL">
       <SubType>Code</SubType>
     </Compile>
