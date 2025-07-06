@@ -9,7 +9,7 @@
 		<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="7" FoeType="1" VendorId="#x00000002" ProductCode="#x10063052" RevisionNo="#x03fc0000" InfoDataAddr="true" TimeoutMailbox2="2000" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL4102 2Ch. Ana. Output  0-10V, 16bit" Desc="EL4102">
 			<SyncMan>0018f6002600010001000000f600f600f600001826010000</SyncMan>
 			<SyncMan>f618f6002200010002000000f600f600f600f61822010000</SyncMan>
-			<SyncMan>001004002400010003000000000000000400001024010000</SyncMan>
+			<SyncMan>001002002400010003000000000000000400001024010000</SyncMan>
 			<SyncMan>001100002000000004000000000000000000001120000000</SyncMan>
 			<Fmmu>0000000000000000001000020100000001000000000000000000000000000000</Fmmu>
 			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
@@ -21,7 +21,7 @@
 					<Type>INT</Type>
 				</Entry>
 			</Pdo>
-			<Pdo Name="Channel 2" Index="#x1601" InOut="1" Flags="#x0010" SyncMan="2">
+			<Pdo Name="Channel 2" Index="#x1601" InOut="1" Flags="#x0010">
 				<Entry Name="Output" Index="#x6411" Sub="#x02" Flags="#x00020000">
 					<Type>INT</Type>
 				</Entry>

@@ -22,19 +22,19 @@ VAR_GLOBAL
     {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Analog Output (EL4102)^Channel 1^Output'}
     nPotentiometerSupply AT %Q* : INT;
     // Display navigation button Up
-    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Status^Up'}
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Up'}
     bNavUp AT %I* : BOOL;
     // Display navigation button Down
-    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Status^Down'}
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Down'}
     bNavDown AT %I* : BOOL;
     // Display navigation button Left
-    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Status^Left'}
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Left'}
     bNavLeft AT %I* : BOOL;
     // Display navigation button Right
-    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Status^Right'}
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Right'}
     bNavRight AT %I* : BOOL;
     // Display navigation button Enter
-    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Status^Enter'}
+    {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Inputs^Enter'}
     bNavEnter AT %I* : BOOL;
     // Display row 1
     {attribute 'TcLinkTo' := 'TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)^DIS Outputs^Value row 1'}

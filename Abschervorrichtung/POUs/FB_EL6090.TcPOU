@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_EL6090" Id="{b271acab-9f4f-4085-8d79-cdef9504cd8e}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_EL6090
+VAR_INPUT
+	bAutoUpdate			: BOOL;
+	AmsNetId			: STRING;
+	Port				: WORD;
+	strLine_1			: STRING;
+	strLine_2			: STRING;
+END_VAR
+VAR_OUTPUT
+	bError				: BOOL;
+	nErrId				: DINT;
+	nOpertingTime		: UDINT;
+END_VAR
+VAR
+	fbEcCoESdoReadEx	: FB_EcCoESdoReadEx;
+	fbEcCoESdoWrite	    : FB_EcCoESdoWrite;
+	i					: INT;
+	fb_Trig				: R_TRIG;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fb_Trig(CLK:=bAutoUpdate);
+
+IF fb_Trig.Q THEN
+	i := 10;
+END_IF
+
+CASE i OF
+10:
+	fbEcCoESdoWrite(
+		sNetId:=AmsNetId ,
+		nSlaveAddr:=Port ,
+		nSubIndex:=16#11 ,
+		nIndex:=16#8008 ,
+		pSrcBuf:=ADR(strLine_1) ,
+		cbBufLen:=TO_UDINT(LEN(strLine_1)) ,
+		bExecute:=TRUE ,
+		tTimeout:= ,
+		bBusy=> ,
+		bError=>bError ,
+		nErrId=>nErrId 
+	);
+	IF NOT fbEcCoESdoWrite.bBusy THEN
+		IF fbEcCoESdoWrite.bError THEN
+			i:=1000;
+		ELSE
+			i:=20;
+		END_IF
+		fbEcCoESdoWrite(bExecute:=FALSE);
+	END_IF
+20:	
+	fbEcCoESdoWrite(
+		sNetId:=AmsNetId ,
+		nSlaveAddr:=Port ,
+		nSubIndex:=16#12 ,
+		nIndex:=16#8008 ,
+		pSrcBuf:=ADR(strLine_2) ,
+		cbBufLen:=TO_UDINT(LEN(STR := strLine_2)) ,
+		bExecute:=TRUE ,
+		tTimeout:= ,
+		bBusy=> ,
+		bError=>bError ,
+		nErrId=>nErrId
+    );
+		IF NOT fbEcCoESdoWrite.bBusy THEN
+			IF fbEcCoESdoWrite.bError THEN
+				i:=1000;
+			ELSE
+				i:=30;
+			END_IF
+			fbEcCoESdoWrite(bExecute:=FALSE);
+		END_IF
+30:	
+	fbEcCoESdoReadEx(
+		sNetId:=AmsNetId ,
+		nSlaveAddr:=Port ,
+		nSubIndex:=16#11 ,
+		nIndex:=16#F600,
+		pDstBuf:=ADR(nOpertingTime) ,
+		cbBufLen:=4 ,
+		bExecute:=TRUE ,
+		tTimeout:= ,
+		bCompleteAccess:= ,
+		bBusy=> ,
+		bError=> ,
+		nErrId=> 
+	);
+	IF NOT fbEcCoESdoReadEx.bBusy THEN
+		IF fbEcCoESdoReadEx.bError THEN
+			i:=1000;
+		ELSE
+			i:=300;
+		END_IF
+		fbEcCoESdoReadEx(bExecute:=FALSE);
+	END_IF
+300: 
+	IF bAutoUpdate THEN
+		i:=10;
+	ELSE
+		i:=0;
+	END_IF
+END_CASE
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

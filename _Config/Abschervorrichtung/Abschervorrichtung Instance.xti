@@ -43,11 +43,14 @@
 				<Link VarA="PlcTask Outputs^GVL_CouplerOnDesk.bSelectorSwitchLed" VarB="Channel 1^Output" AutoLink="true" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Master (EtherCAT)^Term 1 (EK1101)^Display (EL6090)">
-				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavDown" VarB="DIS Inputs^Status^Down" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavEnter" VarB="DIS Inputs^Status^Enter" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavLeft" VarB="DIS Inputs^Status^Left" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavRight" VarB="DIS Inputs^Status^Right" AutoLink="true" Size="1"/>
-				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavUp" VarB="DIS Inputs^Status^Up" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavDown" VarB="DIS Inputs^Down" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavEnter" VarB="DIS Inputs^Enter" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavLeft" VarB="DIS Inputs^Left" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavRight" VarB="DIS Inputs^Right" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_CouplerOnDesk.bNavUp" VarB="DIS Inputs^Up" AutoLink="true" Size="1"/>
+				<Link VarA="PlcTask Inputs^MAIN_1.EL6090_State" VarB="InfoData^State"/>
+				<Link VarA="PlcTask Inputs^MAIN_1.SlaveNetID" VarB="InfoData^AdsAddr^netId"/>
+				<Link VarA="PlcTask Inputs^MAIN_1.SlavePort" VarB="InfoData^AdsAddr^port"/>
 				<Link VarA="PlcTask Outputs^GVL_CouplerOnDesk.nDisplayRow1" VarB="DIS Outputs^Value row 1" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^GVL_CouplerOnDesk.nDisplayRow2" VarB="DIS Outputs^Value row 2" AutoLink="true"/>
 			</OwnerB>

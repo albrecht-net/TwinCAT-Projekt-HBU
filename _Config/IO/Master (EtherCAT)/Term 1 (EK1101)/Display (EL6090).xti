@@ -56,39 +56,39 @@
 		<EtherCAT SlaveType="2" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="7" FoeType="1" VendorId="#x00000002" ProductCode="#x17ca3052" RevisionNo="#x00100000" InfoDataAddr="true" TimeoutMailbox2="2000" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6090 Display terminal" Desc="EL6090">
 			<SyncMan>001080002600010001000000800080008000001026010000</SyncMan>
 			<SyncMan>801080002200010002000000800080008000801022010000</SyncMan>
-			<SyncMan>001104002400010003000000000000000c00001124010000</SyncMan>
-			<SyncMan>801102002000010004000000000000003000801120010000</SyncMan>
+			<SyncMan>001106002400010003000000000000000c00001124010000</SyncMan>
+			<SyncMan>801112002000010004000000000000003000801120010000</SyncMan>
 			<Fmmu>0000000000000000001100020100000001000000000000000000000000000000</Fmmu>
 			<Fmmu>0000000000000000801100010100000002000000000000000000000000000000</Fmmu>
 			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 			<BootStrapData>0010f400f410f400</BootStrapData>
 			<Pdo Name="DIS Inputs" Index="#x1a00" Flags="#x0010" SyncMan="3">
-				<Entry Name="Status__">
+				<Entry>
 					<Type GUID="{18071995-0000-0000-0000-002000000002}">ARRAY [0..1] OF BIT</Type>
 				</Entry>
-				<Entry Name="Status__Up" Index="#x6000" Sub="#x03">
+				<Entry Name="Up" Index="#x6000" Sub="#x03">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Status__Down" Index="#x6000" Sub="#x04">
+				<Entry Name="Down" Index="#x6000" Sub="#x04">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Status__Left" Index="#x6000" Sub="#x05">
+				<Entry Name="Left" Index="#x6000" Sub="#x05">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Status__Right" Index="#x6000" Sub="#x06">
+				<Entry Name="Right" Index="#x6000" Sub="#x06">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Status__Enter" Index="#x6000" Sub="#x07">
+				<Entry Name="Enter" Index="#x6000" Sub="#x07">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Status__">
+				<Entry>
 					<Type GUID="{18071995-0000-0000-0000-002000000008}">ARRAY [0..0] OF BYTE</Type>
 				</Entry>
-				<Entry Name="Status__TxPDO Toggle" Index="#x6000" Sub="#x10">
+				<Entry Name="TxPDO Toggle" Index="#x6000" Sub="#x10">
 					<Type>BIT</Type>
 				</Entry>
 			</Pdo>
-			<Pdo Name="UCP Input Channel 1" Index="#x1a01" Flags="#x0010">
+			<Pdo Name="UCP Input Channel 1" Index="#x1a01" Flags="#x0010" SyncMan="3">
 				<Entry>
 					<Type GUID="{18071995-0000-0000-0000-00200000000E}">ARRAY [0..13] OF BIT</Type>
 				</Entry>
@@ -144,7 +144,7 @@
 					<Type>UDINT</Type>
 				</Entry>
 			</Pdo>
-			<Pdo Name="UCP Inputs operating time" Index="#x1a05" Flags="#x0010">
+			<Pdo Name="UCP Inputs operating time" Index="#x1a05" Flags="#x0010" SyncMan="3">
 				<Entry>
 					<Type GUID="{18071995-0000-0000-0000-00200000000E}">ARRAY [0..13] OF BIT</Type>
 				</Entry>
@@ -163,20 +163,20 @@
 					<Type>INT</Type>
 				</Entry>
 			</Pdo>
-			<Pdo Name="UCP Outputs Channel 1" Index="#x1601" InOut="1" Flags="#x0010">
-				<Entry Name="Ctrl__Timer start" Index="#x7010" Sub="#x01">
+			<Pdo Name="UCP Outputs Channel 1" Index="#x1601" InOut="1" Flags="#x0010" SyncMan="2">
+				<Entry Name="Timer start" Index="#x7010" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Timer reset" Index="#x7010" Sub="#x02">
+				<Entry Name="Timer reset" Index="#x7010" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
 				<Entry>
 					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Counter clk" Index="#x7010" Sub="#x08">
+				<Entry Name="Counter clk" Index="#x7010" Sub="#x08">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Counter reset" Index="#x7010" Sub="#x09">
+				<Entry Name="Counter reset" Index="#x7010" Sub="#x09">
 					<Type>BIT</Type>
 				</Entry>
 				<Entry>
@@ -184,19 +184,19 @@
 				</Entry>
 			</Pdo>
 			<Pdo Name="UCP Outputs Channel 2" Index="#x1602" InOut="1" Flags="#x0010">
-				<Entry Name="Ctrl__Timer start" Index="#x7020" Sub="#x01">
+				<Entry Name="Timer start" Index="#x7020" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Timer reset" Index="#x7020" Sub="#x02">
+				<Entry Name="Timer reset" Index="#x7020" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
 				<Entry>
 					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Counter clk" Index="#x7020" Sub="#x08">
+				<Entry Name="Counter clk" Index="#x7020" Sub="#x08">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Counter reset" Index="#x7020" Sub="#x09">
+				<Entry Name="Counter reset" Index="#x7020" Sub="#x09">
 					<Type>BIT</Type>
 				</Entry>
 				<Entry>
@@ -204,19 +204,19 @@
 				</Entry>
 			</Pdo>
 			<Pdo Name="UCP Outputs Channel 3" Index="#x1603" InOut="1" Flags="#x0010">
-				<Entry Name="Ctrl__Timer start" Index="#x7030" Sub="#x01">
+				<Entry Name="Timer start" Index="#x7030" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Timer reset" Index="#x7030" Sub="#x02">
+				<Entry Name="Timer reset" Index="#x7030" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
 				<Entry>
 					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Counter clk" Index="#x7030" Sub="#x08">
+				<Entry Name="Counter clk" Index="#x7030" Sub="#x08">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Counter reset" Index="#x7030" Sub="#x09">
+				<Entry Name="Counter reset" Index="#x7030" Sub="#x09">
 					<Type>BIT</Type>
 				</Entry>
 				<Entry>
@@ -224,19 +224,19 @@
 				</Entry>
 			</Pdo>
 			<Pdo Name="UCP Outputs Channel 4" Index="#x1604" InOut="1" Flags="#x0010">
-				<Entry Name="Ctrl__Timer start" Index="#x7040" Sub="#x01">
+				<Entry Name="Timer start" Index="#x7040" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Timer reset" Index="#x7040" Sub="#x02">
+				<Entry Name="Timer reset" Index="#x7040" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
 				<Entry>
 					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Counter clk" Index="#x7040" Sub="#x08">
+				<Entry Name="Counter clk" Index="#x7040" Sub="#x08">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Ctrl__Counter reset" Index="#x7040" Sub="#x09">
+				<Entry Name="Counter reset" Index="#x7040" Sub="#x09">
 					<Type>BIT</Type>
 				</Entry>
 				<Entry>
