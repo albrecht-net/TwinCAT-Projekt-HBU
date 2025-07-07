@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CPnIoBoxDef" SubType="9121">
+	<Box Id="1" BoxType="9121">
+		<Name>__FILENAME__</Name>
+		<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
+GSDML path: C:\Users\jonas.albrecht\Downloads\PNGSD\
+VendorName: Siemens AG
+OrderNumber: 6SL3 246-0BA22-1FAx
+HW Release Version: V1.0
+SW Release Version: V4.70]]></Comment>
+		<ImageId>121</ImageId>
+		<Vars VarGrpType="1">
+			<Name>Inputs</Name>
+			<Var>
+				<Name>PnIoBoxState</Name>
+				<Comment><![CDATA[0 = No error
+1 = Profinet device state machine is in boot mode
+2 = Device not found
+3 = The stationname is not unique
+4 = IP could not be set
+5 = IP conflict
+6 = DCP set was not successful
+7 = Watchdog error
+8 = Datahold error
+9 = RTC3: Sync mode could not be initiated
+10 = Profinet controller has a link error
+11 = The aliasname is not unique
+12 = The automatic name assignement isn't possible - wrong device type
+13 = IOC-AR is established but no application ready
+14 = IOC-AR is established but module difference
+15 = At least one InputCR is invalid, provider in stop or problemindicator is set
+16 = At least one OutputCR is invalid, provider in stop or problemindicator is set
+31 = Only for EtherCAT gateways: WC-State of cyclic EtherCAT frame is 1
+]]></Comment>
+				<Type>WORD</Type>
+			</Var>
+			<Var>
+				<Name>PnIoBoxDiag</Name>
+				<Comment><![CDATA[0x0000 = No diagnosis
+0x0001 = IOC-AR is not established
+0x0002 = IOC-AR is established
+0x0004 = IOC-AR is established but no application ready
+0x0008 = IOC-AR is established but module difference
+0x0010 = At least one AlarmCR got a diagnosis alarm
+0x0100 = At least one InputCR is invalid
+0x0200 = At least one InputCR Provider is in stop
+0x0400 = At least one InputCR Problemindicator is set
+0x1000 = At least one OutputCR is invalid
+0x2000 = At least one OutputCR Provider is in stop
+0x4000 = At least one OutputCR Problemindicator is set
+]]></Comment>
+				<Type>WORD</Type>
+				<BitOffs>16</BitOffs>
+			</Var>
+		</Vars>
+		<Vars VarGrpType="2">
+			<Name>Outputs</Name>
+			<Var>
+				<Name>PnIoBoxCtrl</Name>
+				<Type>WORD</Type>
+			</Var>
+		</Vars>
+		<Profinet DeviceId="1299" VendorId="42" FrameOffset="32768" IPAdd="c0a80168" ProtocolType="3" BoxOnDeviceTyp="113" MaxPhysSlotNr="1" AvailableSlots="0..1" InstanceServerPort="50000" InstanceClientPort="50001" InstanceNumberOfARs="1" InstanceNumberOfAPIs="1" MinDeviceInterval="8" SavePnIoBoxValues="0500" MultipleWriteSupported="true" Phase="1" WatchdogFaktor="3" ReductionRatio="1" SendClockFaktor="32" MaxInputLen="62" MaxOutputLen="52" SendClockFactorData="1000200040008000" SendClockFactorRTC3="08001000200040008000" RedRatio="0100020004000800100020004000800000010002" RedRatioRTC3="01000200040008001000" BoxTypeInfo="IO device SINAMICS G120 CU250S-2 PN Vector V4.7 with PROFINET-IO interface (RT, IRT and non-cyclic communications, PROFIsafe, Shared Device)" GSDMLPath="C:\Users\jonas.albrecht\Downloads\PNGSD\GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml" ImagePath="C:\Users\jonas.albrecht\Downloads\PNGSD\GSDML-002A-0513-G120SV.bmp" MainFamily="Drives" ProductFamily="SINAMICS" OrderNr="6SL3 246-0BA22-1FAx" DefaultDNSName="SINAMICS-G120SV-PN" VendorName="Siemens AG" FamDescription="SINAMICS, the unified family of drives with scalable performance, from the chassis to the cabinet unit in a power range from 120 W to several MW." GraphicFile="GSDML-002A-0513-G120SV" SWVersion="V4.70" HWVersion="V1.0" AltLanguage="7">
+			<GsdmlValue Id="VAL_DIAG_ACTIVATION" Content="00000100">
+				<RecordText>Inactive</RecordText>
+				<RecordText>Standard alarms (PROFIdrive)</RecordText>
+			</GsdmlValue>
+			<GsdmlChannelDiag TypeInfo="Hardware/software error" ErrorType="36864" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Network fault" ErrorType="36865" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Supply voltage fault" ErrorType="36866" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="DC link overvoltage" ErrorType="36867" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Power electronics faulted" ErrorType="36868" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Overtemperature of the electronic components" ErrorType="36869" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Ground fault / inter-phase short-circuit detected" ErrorType="36870" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Motor overload" ErrorType="36871" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Communication error to the higher-level control system" ErrorType="36872" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Safety monitoring channel has identified an error" ErrorType="36873" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Actual position/speed value incorrect or not available" ErrorType="36874" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Internal (DRIVE-CLiQ) communication error" ErrorType="36875" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Infeed faulted" ErrorType="36876" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Braking Module faulted" ErrorType="36877" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Line filter faulted" ErrorType="36878" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="External measured value / signal state outside the permissible range" ErrorType="36879" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Application/technological function faulted" ErrorType="36880" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Error in the parameterization / configuration / commissioning procedure" ErrorType="36881" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="General drive fault" ErrorType="36882" API="14848"/>
+			<GsdmlChannelDiag TypeInfo="Auxiliary unit faulted" ErrorType="36883" API="14848"/>
+			<UsedGsdmlModule ModuleIdentNumber="132105" ModuleName="DAP Module" InfoText="IO device SINAMICS G120 CU250S-2 PN Vector V4.7 with PROFINET-IO interface (RT, IRT and non-cyclic communications, PROFIsafe, Shared Device)" OrderNumber="6SL3 246-0BA22-1FAx">
+				<Slot>0</Slot>
+			</UsedGsdmlModule>
+			<UsedGsdmlModule ModuleIdentNumber="66384" Id="IDM_VECTOR" ModuleName="DO VECTOR" InfoText="Drive object (DO) VECTOR">
+				<Slot>1</Slot>
+				<SubSlot InsertedSubModuleID="IDS_MAP1" SubSlotNumber="1" IsFixed="true">
+					<PossibleSubModule>IDS_MAP1</PossibleSubModule>
+				</SubSlot>
+				<SubSlot SubSlotNumber="2">
+					<PossibleSubModule>IDS_EMPTY</PossibleSubModule>
+					<PossibleSubModule>IDS_PS30</PossibleSubModule>
+					<PossibleSubModule>IDS_PS900</PossibleSubModule>
+				</SubSlot>
+				<SubSlot SubSlotNumber="3">
+					<PossibleSubModule>IDS_EMPTY</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL1</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL2</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL3</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL4</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL7</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL9</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL20</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL110</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL111</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL350</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL352</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL353</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL354</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL993</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL994</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL997</PossibleSubModule>
+				</SubSlot>
+				<SubSlot SubSlotNumber="4">
+					<PossibleSubModule>IDS_EMPTY</PossibleSubModule>
+					<PossibleSubModule>IDS_TEL700</PossibleSubModule>
+					<PossibleSubModule>IDS_ADD22</PossibleSubModule>
+					<PossibleSubModule>IDS_ADD24</PossibleSubModule>
+					<PossibleSubModule>IDS_ADD26</PossibleSubModule>
+				</SubSlot>
+			</UsedGsdmlModule>
+			<UsedGsdmlSubModule SubModuleIdentNumber="2" SubSlotNumber="1" TypeOfSubmodule="3" Id="IDS_DAP_CU250SV-V4.7" SubModuleName="SINAMICS G120 CU250S-2 PN Vector V4.7" InfoText="IO device SINAMICS G120 CU250S-2 PN Vector V4.7 with PROFINET-IO interface (RT, IRT and non-cyclic communications, PROFIsafe, Shared Device)">
+				<Record Name="General settings" Length="1" Index="1">
+					<ConstData>0</ConstData>
+					<RecordDataDef Name="Activate diagnostics" DataType="Integer8" DataLength="1" Visible="true" Changeable="true" ValueItemTarget="VAL_DIAG_ACTIVATION">
+						<AllowedValue>0</AllowedValue>
+						<AllowedValue>1</AllowedValue>
+					</RecordDataDef>
+				</Record>
+			</UsedGsdmlSubModule>
+			<UsedGsdmlSubModule SubModuleIdentNumber="268500991" TypeOfSubmodule="4" Id="IDS_MAP1" SubModuleName="Module Access Point" APINr="14848" InfoText="Module Access Point"/>
+			<UsedGsdmlSubModule SubModuleIdentNumber="1" TypeOfSubmodule="4" Id="IDS_TEL1" SubModuleName="Standard telegram 1, PZD-2/2" APINr="14848" InfoText="Standard telegram 1: Closed-loop speed control, PZD length 2/2 words">
+				<DataItemIn Name="Status word or actual value" VarSize="16" VarType="{18071995-0000-0000-0000-000000000005}"/>
+				<DataItemIn Name="Status word or actual value" VarSize="16" VarType="{18071995-0000-0000-0000-000000000005}"/>
+				<DataItemOut Name="Control word or setpoint" VarSize="16" VarType="{18071995-0000-0000-0000-000000000005}"/>
+				<DataItemOut Name="Control word or setpoint" VarSize="16" VarType="{18071995-0000-0000-0000-000000000005}"/>
+			</UsedGsdmlSubModule>
+			<API Id="1">
+				<Name>API</Name>
+				<ImageId>4</ImageId>
+				<Module Id="#x031d0001" DAP="true" ModuleIdentNumber="132105" ModuleInfo="IO device SINAMICS G120 CU250S-2 PN Vector V4.7 with PROFINET-IO interface (RT, IRT and non-cyclic communications, PROFIsafe, Shared Device)">
+					<Name>Term 1 (DAP Module)</Name>
+					<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
+Module Info: IO device SINAMICS G120 CU250S-2 PN Vector V4.7 with PROFINET-IO interface (RT, IRT and non-cyclic communications, PROFIsafe, Shared Device)
+OrderNumber: 6SL3 246-0BA22-1FAx]]></Comment>
+					<ImageId>182</ImageId>
+					<SubModule Id="#x031c0001" SubModuleIdentNumber="2" TypeOfSubModule="3" SubSlotNumber="1" IsFixSubmodule="true" SubModuleID="IDS_DAP_CU250SV-V4.7" AddSubModFlags="60">
+						<Name>Subterm 1 (SINAMICS G120 CU250S-2 PN Vector V4.7)</Name>
+						<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
+Submodule Info: IO device SINAMICS G120 CU250S-2 PN Vector V4.7 with PROFINET-IO interface (RT, IRT and non-cyclic communications, PROFIsafe, Shared Device)
+]]></Comment>
+						<ImageId>183</ImageId>
+						<Record Length="1" Index="1"/>
+						<Vars VarGrpType="1">
+							<Name>Inputs</Name>
+						</Vars>
+						<Vars VarGrpType="2">
+							<Name>Outputs</Name>
+						</Vars>
+					</SubModule>
+					<SubModule Id="#x031c0002" SubModuleIdentNumber="3" TypeOfSubModule="1" SubSlotNumber="32768" IsFixSubmodule="true" SubModuleID="IDS_IF_CU250SV-V4.7" InterfaceData="0503680b82003200e8030000000000000000000000009e000300020000000000" IrtPropData="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000">
+						<Name>Subterm 2 (Interface)</Name>
+						<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
+]]></Comment>
+						<ImageId>183</ImageId>
+						<Vars VarGrpType="1">
+							<Name>Inputs</Name>
+						</Vars>
+						<Vars VarGrpType="2">
+							<Name>Outputs</Name>
+						</Vars>
+					</SubModule>
+					<SubModule Id="#x031c0003" SubModuleIdentNumber="4" TypeOfSubModule="2" SubSlotNumber="32769" IsFixSubmodule="true" SubModuleID="IDS_P1_CU250SV-V4.7" PortData="760118010c0000000000000000000000000000000000000000000000">
+						<Name>Subterm 3 (Port 1)</Name>
+						<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
+]]></Comment>
+						<ImageId>183</ImageId>
+						<Vars VarGrpType="1">
+							<Name>Inputs</Name>
+						</Vars>
+						<Vars VarGrpType="2">
+							<Name>Outputs</Name>
+						</Vars>
+					</SubModule>
+					<SubModule Id="#x031c0004" SubModuleIdentNumber="5" TypeOfSubModule="2" SubSlotNumber="32770" IsFixSubmodule="true" SubModuleID="IDS_P2_CU250SV-V4.7" PortData="760118010c0000000000000000000000000000000000000000000000">
+						<Name>Subterm 4 (Port 2)</Name>
+						<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
+]]></Comment>
+						<ImageId>183</ImageId>
+						<Vars VarGrpType="1">
+							<Name>Inputs</Name>
+						</Vars>
+						<Vars VarGrpType="2">
+							<Name>Outputs</Name>
+						</Vars>
+					</SubModule>
+				</Module>
+				<Module Id="#x031d0002" ModuleIdentNumber="66384" SlotNumber="1" ModuleInfo="Drive object (DO) VECTOR" ModuleID="IDM_VECTOR">
+					<Name>Term 2 (DO VECTOR)</Name>
+					<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
+Module Info: Drive object (DO) VECTOR
+]]></Comment>
+					<ImageId>182</ImageId>
+					<SubModule Id="#x031c0005" SubModuleIdentNumber="268500991" TypeOfSubModule="4" SubSlotNumber="1" IsFixSubmodule="true" APINr="14848" SubModuleID="IDS_MAP1" AddSubModFlags="2048">
+						<Name>Subterm 5 (Module Access Point)</Name>
+						<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
+Submodule Info: Module Access Point
+]]></Comment>
+						<ImageId>183</ImageId>
+						<Vars VarGrpType="1">
+							<Name>Inputs</Name>
+						</Vars>
+						<Vars VarGrpType="2">
+							<Name>Outputs</Name>
+						</Vars>
+					</SubModule>
+					<SubModule Id="#x031c0006" SubModuleIdentNumber="1" TypeOfSubModule="4" SubSlotNumber="3" APINr="14848" SubModuleID="IDS_TEL1">
+						<Name>Subterm 6 (Standard telegram 1, PZD-2/2)</Name>
+						<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
+Submodule Info: Standard telegram 1: Closed-loop speed control, PZD length 2/2 words
+]]></Comment>
+						<ImageId>183</ImageId>
+						<Vars VarGrpType="1">
+							<Name>Inputs</Name>
+							<Var Swapping="#x1">
+								<Name>Status word or actual value[0]</Name>
+								<Type>UINT</Type>
+								<BitOffs>32</BitOffs>
+							</Var>
+							<Var Swapping="#x1">
+								<Name>Status word or actual value[1]</Name>
+								<Type>UINT</Type>
+								<BitOffs>48</BitOffs>
+							</Var>
+						</Vars>
+						<Vars VarGrpType="2">
+							<Name>Outputs</Name>
+							<Var Swapping="#x1">
+								<Name>Control word or setpoint[0]</Name>
+								<Type>UINT</Type>
+								<BitOffs>16</BitOffs>
+							</Var>
+							<Var Swapping="#x1">
+								<Name>Control word or setpoint[1]</Name>
+								<Type>UINT</Type>
+								<BitOffs>32</BitOffs>
+							</Var>
+						</Vars>
+					</SubModule>
+				</Module>
+			</API>
+		</Profinet>
+	</Box>
+</TcSmItem>

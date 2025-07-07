@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_ProfiDriveSTW1" Id="{497062ff-0b65-41c2-b58a-10b61809b5e1}">
+    <Declaration><![CDATA[TYPE ST_ProfiDriveSTW1 :
+STRUCT
+    // The converter goes into the "ready" state.
+    On : BOOL;
+    // The motor can be switched on (ON command). 0: motor coasts down to a standstill.
+    NoCoastStop : BOOL;
+    // The motor can be switched on (ON command). 0: ramp-down time p1135 down to standstill.
+    NoQuickStop : BOOL;
+    // Switch-on motor (pulses can be enabled).
+    EnableOperation : BOOL;
+    // The ramp-function generator can be enabled.
+    NotDisableRampGenerator : BOOL;
+    // The output of the ramp-function generator follows the setpoint.
+    EnableRampeGenerator : BOOL;
+    // Motor accelerates with the ramp-up time p1120 to the setpoint.
+    EnableSetpoint : BOOL;
+    // Acknowledge fault.
+    FaultAcknowledge : BOOL;
+    ReservedBit08 : BOOL;
+    ReservedBit09 : BOOL;
+    // Control via fieldbus, converter accepts the process data from the fieldbus.
+    ControlByPlc : BOOL;
+    // Invert setpoint in the converter.
+    ReverseDirection : BOOL;
+    NotUsedBit12 : BOOL;
+    // Increase the setpoint saved in the motorized potentiometer.
+    IncreaseMop : BOOL;
+    // Reduce the setpoint saved in the motorized potentiometer.
+    DecreaseMop : BOOL;
+    ReservedBit16 : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

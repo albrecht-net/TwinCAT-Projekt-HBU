@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="FB_DriveControl" Id="{b813f350-8b64-4ce2-ab85-07d28ddf6198}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_DriveControl
+VAR_INPUT
+    // Zustandswort 1
+    stZSW1 : ST_ProfiDriveZSW1;
+
+    // Enable motor
+    bOn : BOOL;
+    // Run motor counter clock wise
+    bReverse : BOOL;
+    // Speed setpoint from 0-100 %
+    nSetpoint : UINT;
+END_VAR
+VAR_OUTPUT
+    // Steuerwort 1
+    stSTW1 : ST_ProfiDriveSTW1;
+    // Drehzahl-Sollwert 16 bit
+    nSoll : UINT;
+END_VAR
+VAR CONSTANT
+    MAX_DRIVE_SETPOINT : UINT := 16384;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF NOT bOn THEN
+    stSTW1.On := FALSE;
+ELSE
+    stSTW1.On := TRUE;
+END_IF
+
+IF nSetpoint < 1 THEN
+    stSTW1.EnableSetpoint := FALSE;
+ELSE
+    stSTW1.EnableSetpoint := TRUE;
+END_IF
+
+// Setpoint calculation
+nSoll := MAX_DRIVE_SETPOINT * nSetpoint / 100;
+
+// Misc variables set to enable drive
+stSTW1.NoCoastStop := TRUE;
+stSTW1.NoQuickStop := TRUE;
+stSTW1.EnableOperation := TRUE;
+stSTW1.NotDisableRampGenerator := TRUE;
+stSTW1.EnableRampeGenerator := TRUE;
+stSTW1.ControlByPlc := TRUE;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

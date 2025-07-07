@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CDevEthernetProtocolPnMasterDef" SubType="113">
+	<Device Id="1" DevType="113" AmsPort="28673" AmsNetId="192.168.10.102.2.1" RemoteName="Device 1 (Profinet Controller)">
+		<Name>__FILENAME__</Name>
+		<AddressInfo>
+			<Pnp>
+				<DeviceDesc>Ethernet (Realtek USB GbE Family Controller)</DeviceDesc>
+				<DeviceName>\DEVICE\{BAB9CBEA-0838-4924-A05B-47DCD11B96B5}</DeviceName>
+				<DeviceData>3c18a024d5f0</DeviceData>
+			</Pnp>
+		</AddressInfo>
+		<Image Id="1" AddrType="1" ImageType="3" SizeIn="8" SizeOut="14">
+			<Name>Image</Name>
+		</Image>
+		<Box File="sinamics-g120sv-pn.xti" Id="1"/>
+		<Profinet PLCPortNr="851" AddPortCount="1">
+			<Ethernet DeviceDesc="Ethernet (Realtek USB GbE Family Controller)" SpecialTask="true" TaskPort="301"/>
+			<PNController ClientPort="60000" ServerPort="61000" VendorId="288" DeviceId="35" IPData="00000000c0a80101ffffff00c0a80101" SystemName="tc-pncontroller" IRTSendClock="32">
+				<RTData CableLength="10"/>
+			</PNController>
+		</Profinet>
+	</Device>
+</TcSmItem>

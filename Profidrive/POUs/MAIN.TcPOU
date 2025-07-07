@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{bd698af8-f7cd-4674-81e5-59d22d07e957}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+    // Steuerwort 1
+    stSTW1 AT %Q* : ST_ProfiDriveSTW1;
+    // Drehzahl-Sollwert 16 bit
+    nSoll AT %Q* : UINT;
+    // Zustandswort 1
+    stZSW1 AT %I* : ST_ProfiDriveZSW1;
+    // Drehzahl-Istwert 16 bit
+    nIst AT %I* : UINT;
+
+    fbDrive : FB_DriveControl;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbDrive();
+
+stSTW1 := fbDrive.stSTW1;
+nSoll := fbDrive.nSoll;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

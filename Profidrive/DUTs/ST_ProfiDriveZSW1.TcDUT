@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <DUT Name="ST_ProfiDriveZSW1" Id="{22446589-42c5-4c92-8aa6-d6053531d6b8}">
+    <Declaration><![CDATA[TYPE ST_ProfiDriveZSW1 :
+STRUCT
+    // Power supply switched on; electronics initialized; pulses locked.
+    ReadyToSwitchOn : BOOL;
+    //  Motor is switched on (ON/OFF1 = 1), no fault is active.
+    ReadyToOperate : BOOL;
+    // Motor follows setpoint.
+    OperationEnabled : BOOL;
+    // The converter has a fault.
+    FaultPresent : BOOL;
+    // Coast down to standstill is not active.
+    NoCoastStopActivated : BOOL;
+    // Quick stop is not active.
+    NoQuickStopActivated : BOOL;
+    //  It is only possible to switch on the motor after an OFF1 followed by ON.
+    SwitchingOnInhibited : BOOL;
+    // Motor remains switched on; no acknowledgement is necessary.
+    AlarmPresent : BOOL;
+    // Setpoint / actual value deviation within the tolerance range.
+    NoSpeedDeviation : BOOL;
+    // The automation system is requested to accept the converter control.
+    ControlRequested : BOOL;
+    // Speed is greater than or equal to the corresponding maximum speed.
+    SpeedComparisonValueExeeded : BOOL;
+    // Holding brake open
+    MotorBrakeActive : BOOL;
+    // No alarm, motor overtemperature
+    NoAlarmOvertemperature : BOOL;
+    ReservedBit13 : BOOL;
+    // Motor rotates clockwise
+    DirectionCW : BOOL;
+    // CDS display. 0: Alarm, converter thermal overload.
+    CdsDisplay : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

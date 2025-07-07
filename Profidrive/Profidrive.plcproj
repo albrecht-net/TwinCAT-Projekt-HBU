@@ -8,7 +8,7 @@
     <DownloadApplicationInfo>true</DownloadApplicationInfo>
     <WriteProductVersion>false</WriteProductVersion>
     <GenerateTpy>false</GenerateTpy>
-    <Name>Abschervorrichtung</Name>
+    <Name>Profidrive</Name>
     <ProgramVersion>3.1.4026.16</ProgramVersion>
     <Application>{9e1d0235-269e-4a89-ad74-8b76713ecfbd}</Application>
     <TypeSystem>{ba7c66ae-5300-4ac4-a692-62c9ea4c7bb1}</TypeSystem>
@@ -18,31 +18,19 @@
     <LibraryReferences>{00bfd0ff-e371-4084-bcee-289ff89b6001}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DUTs\ST_OperatingTime.TcDUT">
+    <Compile Include="DUTs\ST_ProfiDriveSTW1.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DUTs\ST_OpMode.TcDUT">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="GVLs\GVL_CouplerOnDesk.TcGVL">
+    <Compile Include="DUTs\ST_ProfiDriveZSW1.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\FB_EL6090.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\FB_SetOpMode.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\F_Convert_to_OperatingTime.TcPOU">
+    <Compile Include="POUs\FB_DriveControl.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="POUs\MAIN_1.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -72,7 +60,7 @@
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Abschervorrichtung.tmc">
+    <None Include="Profidrive.tmc">
       <SubType>Content</SubType>
     </None>
   </ItemGroup>
