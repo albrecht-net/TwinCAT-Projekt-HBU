@@ -4,12 +4,13 @@
 		<System>
 			<Settings MaxCpus="8">
 				<Cpu CpuId="7" RtLimit="90"/>
+				<IoIdleTask Priority="10"/>
 			</Settings>
 			<Tasks>
 				<Task Id="5" Priority="20" CycleTime="100000" AmsPort="352" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
-				<Task Id="3" Priority="1" CycleTime="10000" AmsPort="301">
+				<Task Id="3" Priority="15" CycleTime="10000" AmsPort="301">
 					<Name>ProfinetController</Name>
 					<Vars VarGrpType="1" InsertType="1">
 						<Name>Inputs</Name>

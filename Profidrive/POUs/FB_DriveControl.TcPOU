@@ -12,6 +12,7 @@ VAR_INPUT
     bReverse : BOOL;
     // Speed setpoint from 0-100 %
     nSetpoint : UINT;
+    bReset : BOOL;
 END_VAR
 VAR_OUTPUT
     // Steuerwort 1
@@ -39,12 +40,18 @@ END_IF
 // Setpoint calculation
 nSoll := MAX_DRIVE_SETPOINT * nSetpoint / 100;
 
-// Misc variables set to enable drive
-stSTW1.NoCoastStop := TRUE;
-stSTW1.NoQuickStop := TRUE;
-stSTW1.EnableOperation := TRUE;
-stSTW1.NotDisableRampGenerator := TRUE;
-stSTW1.EnableRampeGenerator := TRUE;
+IF NOT bReset THEN
+    // Misc variables set to enable drive
+    stSTW1.NoCoastStop := TRUE;
+    stSTW1.NoQuickStop := TRUE;
+    stSTW1.EnableOperation := TRUE;
+    stSTW1.NotDisableRampGenerator := TRUE;
+    stSTW1.EnableRampeGenerator := TRUE;
+    stSTW1.FaultAcknowledge := FALSE;
+ELSE
+    stSTW1.FaultAcknowledge := TRUE;
+END_IF
+
 stSTW1.ControlByPlc := TRUE;
 ]]></ST>
     </Implementation>

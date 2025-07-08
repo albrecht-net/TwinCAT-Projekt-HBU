@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CPnIoBoxDef" SubType="9121">
-	<Box Id="1" BoxType="9121">
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CPnIoBoxDef" SubType="9124">
+	<Box Id="1" BoxType="9124">
 		<Name>__FILENAME__</Name>
-		<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
-GSDML path: C:\Users\jonas.albrecht\Downloads\PNGSD\
+		<Comment><![CDATA[GSDML Name: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
+Path: $(TWINCAT3DIR)Config\Io\Profinet\
 VendorName: Siemens AG
 OrderNumber: 6SL3 246-0BA22-1FAx
 HW Release Version: V1.0
 SW Release Version: V4.70]]></Comment>
-		<ImageId>121</ImageId>
+		<ImageId>75</ImageId>
 		<Vars VarGrpType="1">
 			<Name>Inputs</Name>
 			<Var>
@@ -60,7 +60,7 @@ SW Release Version: V4.70]]></Comment>
 				<Type>WORD</Type>
 			</Var>
 		</Vars>
-		<Profinet DeviceId="1299" VendorId="42" FrameOffset="32768" IPAdd="c0a80168" ProtocolType="3" BoxOnDeviceTyp="113" MaxPhysSlotNr="1" AvailableSlots="0..1" InstanceServerPort="50000" InstanceClientPort="50001" InstanceNumberOfARs="1" InstanceNumberOfAPIs="1" MinDeviceInterval="8" SavePnIoBoxValues="0500" MultipleWriteSupported="true" Phase="1" WatchdogFaktor="3" ReductionRatio="1" SendClockFaktor="32" MaxInputLen="62" MaxOutputLen="52" SendClockFactorData="1000200040008000" SendClockFactorRTC3="08001000200040008000" RedRatio="0100020004000800100020004000800000010002" RedRatioRTC3="01000200040008001000" BoxTypeInfo="IO device SINAMICS G120 CU250S-2 PN Vector V4.7 with PROFINET-IO interface (RT, IRT and non-cyclic communications, PROFIsafe, Shared Device)" GSDMLPath="C:\Users\jonas.albrecht\Downloads\PNGSD\GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml" ImagePath="C:\Users\jonas.albrecht\Downloads\PNGSD\GSDML-002A-0513-G120SV.bmp" MainFamily="Drives" ProductFamily="SINAMICS" OrderNr="6SL3 246-0BA22-1FAx" DefaultDNSName="SINAMICS-G120SV-PN" VendorName="Siemens AG" FamDescription="SINAMICS, the unified family of drives with scalable performance, from the chassis to the cabinet unit in a power range from 120 W to several MW." GraphicFile="GSDML-002A-0513-G120SV" SWVersion="V4.70" HWVersion="V1.0" AltLanguage="7">
+		<Profinet DeviceId="1299" VendorId="42" FrameOffset="32768" IPAdd="c0a80068" ProtocolType="3" BoxOnDeviceTyp="113" MaxPhysSlotNr="1" AvailableSlots="0..1" InstanceServerPort="50000" InstanceClientPort="50001" InstanceNumberOfARs="1" InstanceNumberOfAPIs="1" MinDeviceInterval="8" NrOfGsdmlDap="2" SavePnIoBoxValues="0500" MultipleWriteSupported="true" Phase="1" WatchdogFaktor="3" ReductionRatio="1" SendClockFaktor="32" MaxInputLen="62" MaxOutputLen="52" SendClockFactorData="1000200040008000" SendClockFactorRTC3="08001000200040008000" RedRatio="0100020004000800100020004000800000010002" RedRatioRTC3="01000200040008001000" BoxTypeInfo="IO device SINAMICS G120 CU250S-2 PN Vector V4.7 with PROFINET-IO interface (RT, IRT and non-cyclic communications, PROFIsafe, Shared Device)" GSDMLPath="$(TWINCAT3DIR)Config\Io\Profinet\GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml" ImagePath="$(TWINCAT3DIR)Config\Io\Profinet\GSDML-002A-0513-G120SV.bmp" MainFamily="Drives" ProductFamily="SINAMICS" OrderNr="6SL3 246-0BA22-1FAx" DefaultDNSName="SINAMICS-G120SV-PN" VendorName="Siemens AG" FamDescription="SINAMICS, the unified family of drives with scalable performance, from the chassis to the cabinet unit in a power range from 120 W to several MW." GraphicFile="GSDML-002A-0513-G120SV" SWVersion="V4.70" HWVersion="V1.0" AltLanguage="7">
 			<GsdmlValue Id="VAL_DIAG_ACTIVATION" Content="00000100">
 				<RecordText>Inactive</RecordText>
 				<RecordText>Standard alarms (PROFIdrive)</RecordText>
@@ -206,8 +206,8 @@ Submodule Info: IO device SINAMICS G120 CU250S-2 PN Vector V4.7 with PROFINET-IO
 					<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
 Module Info: Drive object (DO) VECTOR
 ]]></Comment>
-					<ImageId>182</ImageId>
-					<SubModule Id="#x031c0005" SubModuleIdentNumber="268500991" TypeOfSubModule="4" SubSlotNumber="1" IsFixSubmodule="true" APINr="14848" SubModuleID="IDS_MAP1" AddSubModFlags="2048">
+					<ImageId>38</ImageId>
+					<SubModule Id="#x031c0005" SubModuleIdentNumber="268500991" TypeOfSubModule="4" SubSlotNumber="1" IsFixSubmodule="true" APINr="14848" P1005="1024" P0880="16384" SubModuleID="IDS_MAP1" AddSubModFlags="2048">
 						<Name>Subterm 5 (Module Access Point)</Name>
 						<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
 Submodule Info: Module Access Point
@@ -220,7 +220,7 @@ Submodule Info: Module Access Point
 							<Name>Outputs</Name>
 						</Vars>
 					</SubModule>
-					<SubModule Id="#x031c0006" SubModuleIdentNumber="1" TypeOfSubModule="4" SubSlotNumber="3" APINr="14848" SubModuleID="IDS_TEL1">
+					<SubModule Id="#x031c0006" SubModuleIdentNumber="1" TypeOfSubModule="4" SubSlotNumber="3" APINr="14848" P1005="1024" P0880="16384" P0922="1" SiemensSignalNo="true" IsDriveSubMod="true" SubModuleID="IDS_TEL1" ChnInfoIn="0200000006000000" ChnInfoOut="0100000005000000">
 						<Name>Subterm 6 (Standard telegram 1, PZD-2/2)</Name>
 						<Comment><![CDATA[GSDML: GSDML-V2.31-Siemens-Sinamics_G120S_Vector-20200511.xml
 Submodule Info: Standard telegram 1: Closed-loop speed control, PZD length 2/2 words
@@ -229,26 +229,26 @@ Submodule Info: Standard telegram 1: Closed-loop speed control, PZD length 2/2 w
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
 							<Var Swapping="#x1">
-								<Name>Status word or actual value[0]</Name>
+								<Name>ZSW1</Name>
 								<Type>UINT</Type>
 								<BitOffs>32</BitOffs>
 							</Var>
 							<Var Swapping="#x1">
-								<Name>Status word or actual value[1]</Name>
-								<Type>UINT</Type>
+								<Name>NIST_A</Name>
+								<Type>INT</Type>
 								<BitOffs>48</BitOffs>
 							</Var>
 						</Vars>
 						<Vars VarGrpType="2">
 							<Name>Outputs</Name>
 							<Var Swapping="#x1">
-								<Name>Control word or setpoint[0]</Name>
+								<Name>STW1</Name>
 								<Type>UINT</Type>
 								<BitOffs>16</BitOffs>
 							</Var>
 							<Var Swapping="#x1">
-								<Name>Control word or setpoint[1]</Name>
-								<Type>UINT</Type>
+								<Name>NSOLL_A</Name>
+								<Type>INT</Type>
 								<BitOffs>32</BitOffs>
 							</Var>
 						</Vars>

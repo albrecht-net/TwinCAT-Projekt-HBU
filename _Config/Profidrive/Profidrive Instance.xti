@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4026.16" ClassName="CTComPlcObjDef">
-	<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" XtvPath="Profidrive\Profidrive Instance.xtv" TmcPath="Abschervorrichtung\Abschervorrichtung.tmc">
+	<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" XtvPath="Profidrive\Profidrive Instance.xtv" TmcPath="Profidrive\Profidrive.tmc">
 		<Name>__FILENAME__</Name>
 		<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 		<Contexts>
@@ -21,10 +21,10 @@
 	<Mappings>
 		<OwnerA>
 			<OwnerB Name="TIID^Device 1 (Profinet Controller)^sinamics-g120sv-pn">
-				<Link VarA="PlcTask Inputs^MAIN.nIst" VarB="API^Term 2 (DO VECTOR)^Subterm 6 (Standard telegram 1, PZD-2/2)^Inputs^Status word or actual value[1]"/>
-				<Link VarA="PlcTask Inputs^MAIN.stZSW1" VarB="API^Term 2 (DO VECTOR)^Subterm 6 (Standard telegram 1, PZD-2/2)^Inputs^Status word or actual value[0]" Size="16"/>
-				<Link VarA="PlcTask Outputs^MAIN.nSoll" VarB="API^Term 2 (DO VECTOR)^Subterm 6 (Standard telegram 1, PZD-2/2)^Outputs^Control word or setpoint[1]"/>
-				<Link VarA="PlcTask Outputs^MAIN.stSTW1" VarB="API^Term 2 (DO VECTOR)^Subterm 6 (Standard telegram 1, PZD-2/2)^Outputs^Control word or setpoint[0]" Size="16"/>
+				<Link VarA="PlcTask Inputs^MAIN.nIst" VarB="API^Term 2 (DO VECTOR)^Subterm 6 (Standard telegram 1, PZD-2/2)^Inputs^NIST_A"/>
+				<Link VarA="PlcTask Inputs^MAIN.stZSW1" VarB="API^Term 2 (DO VECTOR)^Subterm 6 (Standard telegram 1, PZD-2/2)^Inputs^ZSW1"/>
+				<Link VarA="PlcTask Outputs^MAIN.nSoll" VarB="API^Term 2 (DO VECTOR)^Subterm 6 (Standard telegram 1, PZD-2/2)^Outputs^NSOLL_A"/>
+				<Link VarA="PlcTask Outputs^MAIN.stSTW1" VarB="API^Term 2 (DO VECTOR)^Subterm 6 (Standard telegram 1, PZD-2/2)^Outputs^STW1"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>

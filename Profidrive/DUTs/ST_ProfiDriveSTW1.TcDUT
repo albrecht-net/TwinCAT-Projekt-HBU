@@ -4,33 +4,33 @@
     <Declaration><![CDATA[TYPE ST_ProfiDriveSTW1 :
 STRUCT
     // The converter goes into the "ready" state.
-    On : BOOL;
+    On : BIT;
     // The motor can be switched on (ON command). 0: motor coasts down to a standstill.
-    NoCoastStop : BOOL;
+    NoCoastStop : BIT;
     // The motor can be switched on (ON command). 0: ramp-down time p1135 down to standstill.
-    NoQuickStop : BOOL;
+    NoQuickStop : BIT;
     // Switch-on motor (pulses can be enabled).
-    EnableOperation : BOOL;
+    EnableOperation : BIT;
     // The ramp-function generator can be enabled.
-    NotDisableRampGenerator : BOOL;
+    NotDisableRampGenerator : BIT;
     // The output of the ramp-function generator follows the setpoint.
-    EnableRampeGenerator : BOOL;
+    EnableRampeGenerator : BIT;
     // Motor accelerates with the ramp-up time p1120 to the setpoint.
-    EnableSetpoint : BOOL;
+    EnableSetpoint : BIT;
     // Acknowledge fault.
-    FaultAcknowledge : BOOL;
-    ReservedBit08 : BOOL;
-    ReservedBit09 : BOOL;
+    FaultAcknowledge : BIT;
+    ReservedBit08 : BIT;
+    ReservedBit09 : BIT;
     // Control via fieldbus, converter accepts the process data from the fieldbus.
-    ControlByPlc : BOOL;
+    ControlByPlc : BIT;
     // Invert setpoint in the converter.
-    ReverseDirection : BOOL;
-    NotUsedBit12 : BOOL;
+    ReverseDirection : BIT;
+    NotUsedBit12 : BIT;
     // Increase the setpoint saved in the motorized potentiometer.
-    IncreaseMop : BOOL;
+    IncreaseMop : BIT;
     // Reduce the setpoint saved in the motorized potentiometer.
-    DecreaseMop : BOOL;
-    ReservedBit16 : BOOL;
+    DecreaseMop : BIT;
+    ReservedBit16 : BIT;
 END_STRUCT
 END_TYPE
 ]]></Declaration>
