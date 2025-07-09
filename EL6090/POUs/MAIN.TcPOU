@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1">
-  <POU Name="MAIN_1" Id="{f999584f-bbe1-4811-b1b2-84f8b34e0f17}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM MAIN_1
+  <POU Name="MAIN" Id="{bd698af8-f7cd-4674-81e5-59d22d07e957}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	(* Visu Elements*)
 	sLine1				:STRING := 'Hello';
@@ -47,7 +47,8 @@ IF M_1 THEN
 ELSE
 	fb_EL6090.strLine_1:='Value 1:%i';
 	fb_EL6090.strLine_2:='Value 2:%i';
-END_IF]]></ST>
+END_IF
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
